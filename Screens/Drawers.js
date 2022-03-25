@@ -13,6 +13,7 @@ import HomeScreen from './Home';
 import PetsScreenHome from './PetsScreen';
 import Contactus from './Contactus';
 import Cities from './Cities'
+import DetailScreen from '../Screens/DetailsScreen'
 
 
   Drawer = createDrawerNavigator();
@@ -33,6 +34,8 @@ import Cities from './Cities'
                     <Drawer.Screen name="Medicines" component={Medicines} />
                     <Drawer.Screen name="Grooming" component={Grooming} />
                     <Drawer.Screen name="Contact us" component={Contactus} />
+                    <Drawer.Screen name="DetailScreen" component={DetailScreen} />
+                    
                     <Drawer.Screen name="Cities" component={Cities} />
                   </Drawer.Navigator>
                   

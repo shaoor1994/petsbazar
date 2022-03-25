@@ -6,13 +6,15 @@ import { View,
     
     } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 export default function CatPics() {
+  const navigation = useNavigation();
   return (
     <View>
     <TouchableOpacity style={styles.card}
     
-    //onPress={()=>this.props.navigation.navigate('DetailScreen')}
+    onPress={()=>navigation.navigate('DetailScreen')}
 
     >
     <View style={styles.cardView}>
