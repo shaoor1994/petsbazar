@@ -120,7 +120,9 @@ export default class PetsScreenHome extends Component {
                 placeholderTextColor='black'
                                   
                 /> 
+                <TouchableOpacity  onPress={()=>this.props.navigation.navigate('Cities')}>
                 <Image style={styles.gpsImage} source={require('../assets/gps.png')} />
+                </TouchableOpacity>
                 </View>
 
                 <View style={styles.ViewContainer}>

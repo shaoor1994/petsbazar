@@ -106,7 +106,7 @@ export default class Grooming extends Component {
        //const {isVisible} = this.state
         return (
             <View style={{flex:1}}>
-                <Text style={styles.mainText}>Search Medicines for Pet</Text>
+                <Text style={styles.mainText}>Pets Grooming Tips</Text>
                <View style={styles.SectionStyle}>
                 <Image style={styles.SearchImage} source={require('../assets/searchicon.png')}/> 
                <TextInput
@@ -274,7 +274,8 @@ var styles = StyleSheet.create({
 //flexWrap:'wrap'
     },
     petsApiView:{
-      marginVertical:15
+      marginVertical:15,
+      
       
     },
     ViewContainer:{

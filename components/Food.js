@@ -7,15 +7,20 @@ import {View,
   } from 'react-native';
 
 
+import { useNavigation } from '@react-navigation/native';
 
 export default function FoodScreen() {
+  const navigation = useNavigation();
   return (
     <ScrollView horizontal={true} 
     showsHorizontalScrollIndicator={false}
     >
       
      
-      <TouchableOpacity>
+      <TouchableOpacity
+      onPress={()=>navigation.navigate(FoodScreen)}
+      
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/Food/CatFood.png')}   />

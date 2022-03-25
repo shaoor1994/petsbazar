@@ -5,17 +5,22 @@ import {View,
    TouchableOpacity,
   StyleSheet
   } from 'react-native';
-
+  import { useNavigation } from '@react-navigation/native';
 
 
 export default function PetsScreen() {
+
+  const navigation = useNavigation();
   return (
     <ScrollView horizontal={true} 
     showsHorizontalScrollIndicator={false}
     >
       
      
-      <TouchableOpacity style={styles.TouchableOpacityStyle}>
+      <TouchableOpacity style={styles.TouchableOpacityStyle}
+
+      onPress={()=>navigation.navigate(PetsScreen)}
+      >
       <Image  style={styles.catImage}
       
       source = {require('../assets/Pets/Cat.png')}   />

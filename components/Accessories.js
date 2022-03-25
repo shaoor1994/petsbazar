@@ -5,17 +5,24 @@ import {View,
    TouchableOpacity,
   StyleSheet
   } from 'react-native';
-
+  
+  import { useNavigation } from '@react-navigation/native';
 
 
 export default function AccessoriesScreen() {
+
+  const navigation = useNavigation();
   return (
     <ScrollView horizontal={true} 
     showsHorizontalScrollIndicator={false}
     >
       
      
-      <TouchableOpacity>
+      <TouchableOpacity
+      
+      onPress={()=>navigation.navigate(AccessoriesScreen)}
+      
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/Accessories/BirdsHouse.png')}   />

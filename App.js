@@ -28,6 +28,7 @@ import Sellnow from './Screens/Sellnow';
 import Medicines from './Screens/Medicines';
 import { Stack } from 'native-base';
 import Contactus from './Screens/Contactus';
+import Cities from './Screens/Cities';
 
 //for side menu
 
@@ -88,6 +89,13 @@ const Navigation = createStackNavigator(
     },
     AccessoriesScreenHome: {
       screen: AccessoriesScreenHome,
+      navigationOptions: {
+        headerShown: 'true',
+        
+      }
+    },
+    Cities: {
+      screen: Cities,
       navigationOptions: {
         headerShown: 'true',
         
