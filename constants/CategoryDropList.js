@@ -1,27 +1,30 @@
 import React, { Component } from "react";
 import { Picker, View, Text, StyleSheet } from "react-native";
 
-export default class CategoryScreen extends Component {
+export default class CategoryDropList extends Component {
   state = {
     selectedcat: "",
     category: [
       {
-        itemName: "Samsung M20"
+        itemName: "Cat"
       },
       {
-        itemName: "Nokia"
+        itemName: "Dog"
       },
       {
-        itemName: "Apple"
+        itemName: "Lion"
       },
       {
-        itemName: "Samsung M23"
+        itemName: "Monkey"
       },
       {
-        itemName: "Samsung M24"
+        itemName: "Parrot"
       },
       {
-        itemName: "Samsung M25"
+        itemName: "Hamster"
+      },
+      {
+        itemName: "Hen"
       }
     ]
   };
@@ -67,13 +70,14 @@ const styles = StyleSheet.create({
    // flex: 1,
     alignSelf: "center",
     flexDirection: "row",
-    width: "98%",
+    width: "99%",
     justifyContent: "space-between",
     alignItems: "flex-start",
     borderWidth:1,
     height:'5%',
     backgroundColor:'white',
-    borderRadius:10
+    borderRadius:10,
+    margin:7
   },
   itemStyle: {
     fontSize: 10,

@@ -1,27 +1,27 @@
 import React, { Component } from "react";
 import { Picker, View, Text, StyleSheet } from "react-native";
 
-export default class CategoryScreen extends Component {
+export default class CityDropList extends Component {
   state = {
     selectedcat: "",
     category: [
       {
-        itemName: "Samsung M20"
+        itemName: "Islamabad"
       },
       {
-        itemName: "Nokia"
+        itemName: "Rawalpindi"
       },
       {
-        itemName: "Apple"
+        itemName: "Lahore"
       },
       {
-        itemName: "Samsung M23"
+        itemName: "Peshawar"
       },
       {
-        itemName: "Samsung M24"
+        itemName: "Karachi"
       },
       {
-        itemName: "Samsung M25"
+        itemName: "Quetta"
       }
     ]
   };
@@ -67,13 +67,14 @@ const styles = StyleSheet.create({
    // flex: 1,
     alignSelf: "center",
     flexDirection: "row",
-    width: "98%",
+    width: "99%",
     justifyContent: "space-between",
-    alignItems: "flex-start",
+    //alignItems: "flex-start",
     borderWidth:1,
     height:'5%',
     backgroundColor:'white',
-    borderRadius:10
+    borderRadius:10,
+    margin:2
   },
   itemStyle: {
     fontSize: 10,

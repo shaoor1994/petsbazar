@@ -6,16 +6,19 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
-  Picker
+  Picker,
+  Platform,
 } from "react-native";
 
 import React, { Component } from "react";
 //import { Dropdown } from "react-native-material-dropdown";
 import { Icon } from "react-native-elements";
 import ImagePickerExample from "../components/CameraFunc";
-import SelectDropdown from 'react-native-select-dropdown'
-
-
+import SelectDropdown from "react-native-select-dropdown";
+import Constants from "expo-constants";
+import DropDownPicker from "react-native-dropdown-picker";
+import CategoryDropList from "../constants/CategoryDropList";
+import CityDropList from "../constants/CityDropList";
 
 export default class Sellnow extends Component {
   static navigationOptions = {
@@ -64,17 +67,14 @@ export default class Sellnow extends Component {
     headerTitleAlign: "left",
   };
 
-   
   //state={category:''}
-   // state={citySelect:''}
+  // state={citySelect:''}
   render() {
-    const categories = ["Lion", "Cat", "Dog", "Parrot","Hamster","Monkey"]
-    const citySelect= ["Islamabad","Rawalpindi","Lahore","Peshawar","Karachi","Quetta"]
     return (
       <View style={styles.container}>
-        <Text style={styles.sellText}>Sell Now</Text>
-
-        <ScrollView nestedScrollEnabled={true}>
+        <ScrollView nestedScrollEnabled={true}
+        showsVerticalScrollIndicator={false}
+        >
           <View style={styles.formContainer}>
             <Text style={styles.conText}>Please Fill the Below Form </Text>
 
@@ -84,47 +84,13 @@ export default class Sellnow extends Component {
               <Text style={styles.formText}>Title</Text>
               <TextInput style={styles.formInput} />
               <Text style={styles.formText}>Category</Text>
-             
 
-          <SelectDropdown
-
-        style={{height:100}}
-	data={categories}
-	onSelect={(selectedItem, index) => {
-		console.log(selectedItem, index)
-	}}
-	buttonTextAfterSelection={(selectedItem, index) => {
-		// text represented after item is selected
-		// if data array is an array of objects then return selectedItem.property to render after item is selected
-		return selectedItem
-	}}
-	rowTextForSelection={(item, index) => {
-		// text represented for each item in dropdown
-		// if data array is an array of objects then return item.property to represent item in dropdown
-		return item
-	}}
-/>
+              <CategoryDropList />
 
               <Text style={styles.formText}>City</Text>
-             
-            <SelectDropdown
-	data={citySelect}
-	onSelect={(selectedItem, index) => {
-		console.log(selectedItem, index)
-	}}
-	buttonTextAfterSelection={(selectedItem, index) => {
-		// text represented after item is selected
-		// if data array is an array of objects then return selectedItem.property to render after item is selected
-		return selectedItem
-	}}
-	rowTextForSelection={(item, index) => {
-		// text represented for each item in dropdown
-		// if data array is an array of objects then return item.property to represent item in dropdown
-		return item
-	}}
-/>
-            
-        
+
+              <CityDropList />
+
               <Text style={styles.formText}> Contact Number </Text>
               <TextInput style={styles.formInput} />
               <Text style={styles.formText}>Price</Text>
@@ -162,6 +128,8 @@ var styles = StyleSheet.create({
     backgroundColor: "#ff9933",
     flex: 1,
     flexDirection: "column",
+    alignSelf:'center',
+    
   },
   conText: {
     fontSize: 25,
@@ -169,19 +137,19 @@ var styles = StyleSheet.create({
     textAlign: "left",
     margin: 10,
   },
-  inputContainer: {},
+
   formInput: {
     //flex:1,
     height: 40,
     // marginLeft:7,
     //marginRight:7,
-    margin: 7,
-    width: 300,
+    margin: 10,
+    width: 340,
     borderWidth: 1,
     borderColor: "black",
     backgroundColor: "white",
     textAlign: "center",
-    borderRadius: 20,
+    borderRadius: 10,
   },
   formText: {
     fontSize: 20,
@@ -191,8 +159,8 @@ var styles = StyleSheet.create({
   },
   descriptionInput: {
     height: 80,
-    margin: 5,
-    width: 300,
+    margin: 10,
+    width: 340,
     borderWidth: 1,
     borderColor: "black",
     backgroundColor: "white",
@@ -221,10 +189,19 @@ var styles = StyleSheet.create({
     color: "white",
     margin: 5,
   },
-  dropdown:{
-    backgroundColor:'white',
-    borderWidth:1,
-    borderColor:'black'
-
-  }
+  dropdown: {
+    backgroundColor: "white",
+    borderWidth: 1,
+    borderColor: "black",
+  },
+  dropdownContainer: {
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignSelf: "center",
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#ff9933",
+    padding: 8,
+  },
 });
