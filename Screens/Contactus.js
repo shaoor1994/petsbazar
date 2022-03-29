@@ -105,6 +105,48 @@ export default class Contactus extends Component {
           <TextInput style={styles.formInput} placeholder="Your name" />
           <TextInput style={styles.formInput} placeholder="Your email" />
           <TextInput style={styles.descriptionInput} placeholder="Your message" />
+
+
+          <TouchableOpacity style={styles.btn}>
+
+      <Text style={styles.btnTxt}>Send</Text>
+
+          </TouchableOpacity>
+
+          <View style={styles.SocialMediaContainer}>
+
+          <TouchableOpacity 
+          
+          onPress={()=> OpenAnything.Facebook('https://www.facebook.com/PetBazar.online/')}
+
+          >
+
+        <Image
+            style={styles.socialIcon}
+        source={require('../assets/SocialMediaIcons/facebook.png')}
+
+        />
+
+          </TouchableOpacity>
+
+          <TouchableOpacity
+          onPress={()=> OpenAnything.Instagram('https://www.instagram.com/accounts/login/?next=/petsbazar.online/')}
+          >
+
+        <Image
+              style={styles.socialIcon}
+        source={require('../assets/SocialMediaIcons/insta.png')}
+
+        />
+
+          </TouchableOpacity>
+          
+
+          </View>
+
+          <Text style={styles.cpyRight} >Powered By: mh9 Solutions</Text>
+          
+
         </ScrollView>
       </View>
     );
@@ -195,7 +237,7 @@ emailText:{
 },
 emailIcon:{
     padding: 10,
-    marginLeft:125,
+    marginLeft:120,
     marginBottom:0,
     marginTop:25,
     height: 35,
@@ -206,5 +248,51 @@ emailContainer:{
     flexDirection:'row',
     alignSelf:'center',
     margin:10
+},
+SocialMediaContainer:{
+flexDirection:'row',
+height:70,
+alignItems:'center',
+alignSelf:'center',
+justifyContent:'space-around',
+
+},
+socialIcon:{
+
+resizeMode:'cover',
+height:45,
+width:45,
+alignSelf:'center',
+
+},
+btn:{
+  backgroundColor:"#FF642E",
+  height:50,
+  width:100,
+  alignItems:'center',
+  margin:10,
+  alignSelf:'center',
+  borderRadius:20
+},
+btnTxt:{
+
+  textAlign:'center',
+  fontSize:25,
+  fontWeight:'bold',
+  marginVertical:10
+},
+cpyRight:{
+
+  textAlign:'center',
+  marginBottom:5,
+  fontWeight:'bold',
+  
+  
+
 }
+
+
+
+
+
 });
