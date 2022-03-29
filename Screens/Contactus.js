@@ -11,6 +11,7 @@ import {
   Alert
 } from "react-native";
 import { Paragraph } from "react-native-paper";
+import * as OpenAnything from "react-native-openanything";
 const whatsappHandler = () => {
 
     Alert.alert(
@@ -27,12 +28,26 @@ const whatsappHandler = () => {
           }
         
         },
+        { text: 'Call',
+            
+           onPress: () => {
+            OpenAnything.Call("+923042224537")
+            
+          }
+        
+        },
         {
-            text: 'Later',
-            onPress: () => console.log('No Pressed'), style: 'cancel'
+            text: 'SMS',
+            //onPress: () => console.log('No Pressed'), style: 'cancel'
+            onPress: () => {
+              OpenAnything.Text("+923042224537")
+            }
           },
 
-        ]
+        ],
+        {
+          cancelable:true
+        }
 
     );
 
@@ -56,17 +71,19 @@ export default class Contactus extends Component {
             PetsBazar Support office
           </Text>
           </View>
+          <TouchableOpacity onPress={()=> OpenAnything.Map('33.7327841,73.0859873')}>
           
           <Text style={styles.paragraph}>
             305-D, Evacuee Trust Complex, Sector F-5/1, Islamabad, 44000,
             Pakistan.
           </Text>
+          </TouchableOpacity>
           <View style={styles.headingContainer}>
           <Image 
               source={require('../assets/callicon.png')}
               style={styles.iconImage}
           />
-          <Text style={styles.paragraphHeading}> Phone </Text>
+          <Text style={styles.paragraphHeading}>Phone</Text>
           </View>
           <Text style={styles.paragraph}>+92 302 8561171</Text>
           <TouchableOpacity onPress={whatsappHandler}>
@@ -77,9 +94,13 @@ export default class Contactus extends Component {
               source={require('../assets/emailicon.png')}
               style={styles.emailIcon}
           />
+          
           <Text style={styles.emailText}>Email</Text>
+          
           </View>
+          <TouchableOpacity onPress={()=> OpenAnything.Email("info@petsbazar.online")}>
           <Text style={styles.paragraph}>info@petsbazar.online</Text>
+          </TouchableOpacity>
           <Text style={styles.formText}>Need Help Send us a Message</Text>
           <TextInput style={styles.formInput} placeholder="Your name" />
           <TextInput style={styles.formInput} placeholder="Your email" />

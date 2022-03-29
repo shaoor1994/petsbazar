@@ -15,12 +15,12 @@ import
 }
  from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
-import CatPics from '../components/CatPics';
-import DogPics from '../components/DogPics';
-import HenPics from '../components/HenPics';
-//import PetsList from '../components/PetsList';
-//import Api from '../components/Api';
 
+import HenAccessoriesPics from '../components/AccessoryPics/HenAccessories';
+import CatAccessoriesPics from '../components/AccessoryPics/CatAccessoriessPics';
+import DogAccessoriesPics from '../components/AccessoryPics/DogAccessoriesPics';
+import HamsterAccessoriesPics from '../components/AccessoryPics/HamsterAccessories';
+import ParrotAccessoriesPics from '../components/AccessoryPics/ParrotAccessories';
 export default class AccessoriesScreenHome extends Component {
     constructor(props) {
         super(props)
@@ -38,23 +38,23 @@ export default class AccessoriesScreenHome extends Component {
     selectedTab = () => {
         switch(this.state.selectedTab){
             case 'Cat':
-                return <CatPics/>
+                return <CatAccessoriesPics/>
             case 'Lion':
                 return <Text>This is Lion</Text>
             case 'Parrot':
-                return <Text>This is Parrot</Text>
+                return <ParrotAccessoriesPics/>
             case 'Hamster':
-                return <Text>This is Hamster</Text>
+                return <HamsterAccessoriesPics/>
             case 'Hen':
-                return <HenPics/>
+                return <HenAccessoriesPics/>
             case 'Dog':
-                return <DogPics/>
+                return <DogAccessoriesPics/>
              case 'Rabbit':
                 return <Text>This is Rabbit</Text>
                 case 'Monkey':
                 return <Text>This is Monkey</Text>
             default:
-                return <CatPics/>
+                return <CatAccessoriesPics/>
         }
     }
    

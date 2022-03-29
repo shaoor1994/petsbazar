@@ -15,9 +15,10 @@ import
 }
  from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
-import CatPics from '../components/CatPics';
-import DogPics from '../components/DogPics';
 import HenPics from '../components/HenPics';
+import CatFoodPics from '../components/FoodPics/CatFoodPics';
+import DogFoodPics from '../components/FoodPics/DogFoodPics';
+import BirdFoodPics from '../components/FoodPics/BirdFoodPics';
 //import PetsList from '../components/PetsList';
 //import Api from '../components/Api';
 
@@ -38,23 +39,23 @@ export default class FoodScreenHome extends Component {
     selectedTab = () => {
         switch(this.state.selectedTab){
             case 'Cat':
-                return <CatPics/>
+                return <CatFoodPics/>
             case 'Lion':
                 return <Text>This is Lion</Text>
             case 'Parrot':
-                return <Text>This is Parrot</Text>
+                return <BirdFoodPics/>
             case 'Hamster':
                 return <Text>This is Hamster</Text>
             case 'Hen':
                 return <HenPics/>
             case 'Dog':
-                return <DogPics/>
+                return <DogFoodPics/>
              case 'Rabbit':
                 return <Text>This is Rabbit</Text>
                 case 'Monkey':
                 return <Text>This is Monkey</Text>
             default:
-                return <CatPics/>
+                return <CatFoodPics/>
         }
     }
    
