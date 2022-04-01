@@ -1,6 +1,6 @@
 import React, { Component , useState  } from 'react'
 import {Icon} from 'react-native-elements'
-
+import Constants from 'expo-constants';
 import {search} from 'react-native-vector-icons/FontAwesome'
 import
  { 
@@ -23,6 +23,7 @@ import ParrotPics from '../components/ParrotPics';
 import LionPics from '../components/LionPics';
 import RabbitPics from '../components/RabbitPics';
 import MonkeyPics from '../components/MokeyPics';
+import Cities from './Cities';
 //import PetsList from '../components/PetsList';
 //import Api from '../components/Api';
 
@@ -36,6 +37,8 @@ export default class PetsScreenHome extends Component {
        
       }
       
+      state = {active: null};
+
    setTab = (tab) => {
         this.setState({selectedTab: tab})
     }
@@ -120,7 +123,7 @@ export default class PetsScreenHome extends Component {
                 placeholderTextColor='black'
                                   
                 /> 
-                <TouchableOpacity  onPress={()=>this.props.navigation.navigate('Cities')}>
+                <TouchableOpacity  onPress={()=>this.props.navigation.navigate("Cities")}>
                 <Image style={styles.gpsImage} source={require('../assets/gps.png')} />
                 </TouchableOpacity>
                 </View>
@@ -139,45 +142,98 @@ export default class PetsScreenHome extends Component {
     >
       
      
-      <TouchableOpacity onPress={ () =>this.setTab('Cat')}
+      <TouchableOpacity onPress={ () => {this.setTab('Cat')
+      
+      this.setState({ active: 0 })
+      
+      }}
+
+      style={this.state.active === 0 ? styles.activebutton : null}
       >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/petslist/cat.png')}   />
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={()=>this.setTab('Lion')}>
+      <TouchableOpacity onPress={()=> {this.setTab('Lion')
+      
+      this.setState({ active: 1 })
+      
+      }}
+      style={this.state.active === 1 ? styles.activebutton : null}
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/petslist/lion.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=> this.setTab('Parrot')}>
+      <TouchableOpacity onPress={()=> { this.setTab('Parrot')
+      this.setState({ active: 2 })
+      
+      }}
+      
+      style={this.state.active === 2 ? styles.activebutton : null}
+      
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/petslist/birds.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=>this.setTab('Hamster')}>
+      <TouchableOpacity onPress={()=> {this.setTab('Hamster')
+      this.setState({ active: 3 })
+      
+      }}
+      
+      style={this.state.active === 3 ? styles.activebutton : null}
+      
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/petslist/hamster.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity  onPress={()=>this.setTab('Hen')}>
+      <TouchableOpacity  onPress={()=>{this.setTab('Hen') 
+      this.setState({ active: 4 })}}
+      
+      style={this.state.active === 4 ? styles.activebutton : null}
+      
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/petslist/Hen.png')}   />
       </TouchableOpacity>
      
-      <TouchableOpacity onPress={()=>this.setTab('Dog')}>
+      <TouchableOpacity onPress={()=>{this.setTab('Dog')
+      this.setState({ active: 5 })
+      
+      }}
+      
+      style={this.state.active === 5 ? styles.activebutton : null}
+      
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/petslist/dog.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=>this.setTab('Monkey')}>
+      <TouchableOpacity onPress={()=>{this.setTab('Monkey')
+      this.setState({ active: 6 })
+
+      }}
+      
+      style={this.state.active === 6 ? styles.activebutton : null}
+      
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/petslist/monkey.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=>this.setTab('Rabbit')}>
+      <TouchableOpacity onPress={()=>{this.setTab('Rabbit')
+      
+      this.setState({ active: 7 })
+
+      }}
+      
+      style={this.state.active === 7 ? styles.activebutton : null}
+      
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/petslist/rabbit.png')}   />
@@ -292,7 +348,14 @@ var styles = StyleSheet.create({
         //height:Dimensions.get('window').height,
         //width:Dimensions.get('window').width,
         //width: '100%'
-    }
+    },
+    activebutton:{
+        borderColor:'#FF642E',
+        borderWidth:2,
+        margin:5,
+        padding:3,
+        borderRadius:10
+      },
 
     
 });

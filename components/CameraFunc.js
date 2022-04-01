@@ -39,7 +39,8 @@ var styles = StyleSheet.create({
         height:35,
         width:120,
         backgroundColor:'#FF642E',
-        borderRadius:20
+        borderRadius:20,
+        alignSelf:'center'
     },
     btnTxt:{
 

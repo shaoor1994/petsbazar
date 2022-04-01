@@ -89,14 +89,16 @@ var styles = StyleSheet.create({
     alignContent: "flex-start",
   },
   ImageContainer: {
-    flex: 1,
-    height: 400,
+    //flex: 1,
+    height: 500,
     width: 380,
     marginLeft: -20,
+    marginTop:-150
   },
   txtMainContainer: {
     flex: 1,
     alignSelf: "center",
+    marginTop:-120
   },
   TextContainer: {
     backgroundColor: "#FF642E",

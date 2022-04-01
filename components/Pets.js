@@ -8,7 +8,7 @@ import {View,
   import { useNavigation } from '@react-navigation/native';
 
 
-export default function PetsScreen() {
+const PetsScreen = ( ) => {
 
   const navigation = useNavigation();
   return (
@@ -19,7 +19,7 @@ export default function PetsScreen() {
      
       <TouchableOpacity style={styles.TouchableOpacityStyle}
 
-      onPress={()=>navigation.navigate(PetsScreen)}
+      onPress={()=>navigation.navigate('Pets')}
       >
       <Image  style={styles.catImage}
       
@@ -60,7 +60,7 @@ export default function PetsScreen() {
   );
 }
 
-
+export default React.memo(PetsScreen);
 
 var styles = StyleSheet.create({
 

@@ -17,7 +17,7 @@ import
 import { ScrollView } from 'react-native-gesture-handler';
 import CatPics from '../components/CatPics';
 import DogPics from '../components/DogPics';
-import HenPics from '../components/HenPics';
+import HenMedicines from '../components/MedicinesPics/HenMedicines';
 //import PetsList from '../components/PetsList';
 //import Api from '../components/Api';
 
@@ -38,23 +38,23 @@ export default class Medicines extends Component {
     selectedTab = () => {
         switch(this.state.selectedTab){
             case 'Cat':
-                return <CatPics/>
+                return <Text>Cat Medicine comming soon.....!</Text>
             case 'Lion':
-                return <Text>Lion Medicines</Text>
+                return <Text>Lion Medicines comming soon.....!</Text>
             case 'Parrot':
-                return <Text>Bird Medicines</Text>
+                return <Text>Bird Medicines comming soon.....!</Text>
             case 'Hamster':
-                return <Text> Hamster Medicines</Text>
+                return <Text> Hamster Medicines comming soon.....!</Text>
             case 'Hen':
-                return <HenPics/>
+                return <HenMedicines/>
             case 'Dog':
-                return <DogPics/>
+                return <Text>Dog Medicines comming soon.....!</Text>
              case 'Rabbit':
-                return <Text>Rabbit Medicines</Text>
+                return <Text>Rabbit Medicines comming soon.....!</Text>
                 case 'Monkey':
-                return <Text>Monkey Medicines</Text>
+                return <Text>Monkey Medicines comming soon.....!</Text>
             default:
-                return <CatPics/>
+                return <HenMedicines/>
         }
     }
    

@@ -6,25 +6,16 @@ export default class CategoryDropList extends Component {
     selectedcat: "",
     category: [
       {
-        itemName: "Cat"
+        itemName: "Pets"
       },
       {
-        itemName: "Dog"
+        itemName: "Pets Food"
       },
       {
-        itemName: "Lion"
+        itemName: "Pets Products"
       },
       {
-        itemName: "Monkey"
-      },
-      {
-        itemName: "Parrot"
-      },
-      {
-        itemName: "Hamster"
-      },
-      {
-        itemName: "Hen"
+        itemName: "Pets Accessories"
       }
     ]
   };

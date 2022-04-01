@@ -9,7 +9,7 @@ import {View,
   import { useNavigation } from '@react-navigation/native';
 
 
-export default function AccessoriesScreen() {
+const AccessoriesScreen = () => {
 
   const navigation = useNavigation();
   return (
@@ -20,7 +20,7 @@ export default function AccessoriesScreen() {
      
       <TouchableOpacity
       
-      onPress={()=>navigation.navigate(AccessoriesScreen)}
+      onPress={()=>navigation.navigate('Pets Accessories')}
       
       >
       <Image  style={styles.ImageStyling}
@@ -52,7 +52,7 @@ export default function AccessoriesScreen() {
   );
 }
 
-
+export default React.memo(AccessoriesScreen)
 
 var styles = StyleSheet.create({
 

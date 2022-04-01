@@ -279,7 +279,8 @@ btnTxt:{
   textAlign:'center',
   fontSize:25,
   fontWeight:'bold',
-  marginVertical:10
+  marginVertical:10,
+  color:'#ffff'
 },
 cpyRight:{
 

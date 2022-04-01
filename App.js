@@ -29,6 +29,8 @@ import Medicines from './Screens/Medicines';
 import { Stack } from 'native-base';
 import Contactus from './Screens/Contactus';
 import Cities from './Screens/Cities';
+import VeterinaryScreen from './Screens/VeterinaryClinic';
+import MedicinesDetailScreen from './components/MedicineDetails/MedicinesDetails';
 
 //for side menu
 
@@ -108,6 +110,13 @@ const Navigation = createStackNavigator(
        // title: 'Pets Bazar' 
       }
     },
+    MedicinesDetailScreen: {
+      screen: MedicinesDetailScreen,
+      navigationOptions: {
+        headerShown: 'true',
+       // title: 'Pets Bazar' 
+      }
+    },
     CatApiList: {
       screen: CatApiList,
       navigationOptions: {
@@ -130,6 +139,13 @@ const Navigation = createStackNavigator(
      // title: 'Pets Bazar' 
     }
   },
+  VeterinaryScreen: {
+    screen: VeterinaryScreen,
+    navigationOptions: {
+      headerShown: 'true',
+      
+    }
+  }
   
 
   },

@@ -88,8 +88,8 @@ ImageStyling:{
 card:{
     backgroundColor:'#fff',
     marginBottom:10,
-    marginLeft:'2%',
-    width:"100%",
+    marginLeft:'1%',
+    width:"98%",
     shadowColor:'#000',
    /* shadowOpacity:1,
     shadowOffset:{
@@ -125,7 +125,11 @@ priceStyling:{
   fontSize:20
 },
 cardView:{
-  flexDirection:'row'
+  flexDirection:'row',
+  borderWidth:1,
+  margin:1,
+  borderColor:'blue'
+  
 },
 middleStyling:{
     marginLeft:-130,

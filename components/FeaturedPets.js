@@ -16,28 +16,43 @@ import {
 export default function FeaturedPets() {
     const whatsappHandler = () => {
 
-        Alert.alert(
+      Alert.alert(
 
-            'Shop Now',
-            'Whatsapp now',
-            [
-               { text: 'Whatsapp',
-                
-               onPress: () => {
-                Linking.openURL(
-                  'http://api.whatsapp.com/send?phone=923042224537' 
-                );
-              }
+        'Shop Now',
+        'Whatsapp now',
+        [
+           { text: 'Whatsapp',
             
-            },
-            {
-                text: 'Later',
-                onPress: () => console.log('No Pressed'), style: 'cancel'
-              },
+           onPress: () => {
+            Linking.openURL(
+              'http://api.whatsapp.com/send?phone=923042224537' 
+            );
+          }
+        
+        },
+        { text: 'Call',
+            
+           onPress: () => {
+            OpenAnything.Call("+923042224537")
+            
+          }
+        
+        },
+        {
+            text: 'SMS',
+            //onPress: () => console.log('No Pressed'), style: 'cancel'
+            onPress: () => {
+              OpenAnything.Text("+923042224537")
+            }
+          },
 
-            ]
+        ],
+        {
+          cancelable:true
+        }
 
-        );
+    );
+
 
     }
   return (
@@ -134,7 +149,7 @@ var styles = StyleSheet.create({
         marginRight:60,
         marginTop:10,
 
-        backgroundColor:'#ff9933',
+        backgroundColor:'#FF642E',
         borderRadius:30,
         justifyContent:'center'
         
@@ -147,7 +162,7 @@ var styles = StyleSheet.create({
         marginRight:50,
         marginTop:10,
 
-        backgroundColor:'#ff9933',
+        backgroundColor:'#FF642E',
         borderRadius:30,
         justifyContent:'center'
         
@@ -155,7 +170,8 @@ var styles = StyleSheet.create({
     },
     textStyling:{
         textAlign:'center',
-        fontWeight:'bold'
+        fontWeight:'bold',
+        color:'#FFFF'
     }
 
 

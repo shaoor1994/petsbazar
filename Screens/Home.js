@@ -21,51 +21,7 @@ import AccessoriesScreen from '../components/Accessories';
 import FeaturedPets from '../components/FeaturedPets';
 
 export default class HomeScreen extends Component {
-    static navigationOptions = {  
-        //  title: 'PetsBazar',
-          
-              headerTitle: () => (
-                <Image style={{ resizemode:'contain',width: 30, height: 30 ,marginLeft:60}} source={require("../assets/PETSBAZAR-Favicon.png")} />
-                
-                
-              ),
-              headerRight:( 
-  
-                  <Text style={{fontWeight:'bold',marginRight:80,fontSize:25}}>PetsBazar</Text>
-              )
-              ,
-           
-          headerLeft: (
-              <TouchableOpacity
-            //  onPress={()=> this.MyDrawer()}
-          //  onPress={() => {
-           //navData.navigation.toggleDrawer() }}
-              >
-              <Icon
-              
-              
-               // containerStyle={styles.icon}
-               style={{paddingLeft: 10}} 
-               type="ionicon"
-                name={Platform.OS === "ios" ? "ios-menu" : "md-menu"}
-                //name={Platform.OS === "android" ? "android-menu" : "md-menu"}
-              />
-              </TouchableOpacity>
-            ),
-            
-          headerStyle: {  
-              backgroundColor: '#ffffff', 
       
-              
-          },  
-      
-          
-          //headerTintColor: '#0ff',  
-          headerTitleStyle: {  
-              fontWeight: 'bold',  
-          }, 
-          headerTitleAlign:"left" 
-      };
     render() {
 
         return (
@@ -78,9 +34,13 @@ export default class HomeScreen extends Component {
                             nestedScrollEnabled={true}
                             horizantal
                             loop
+                            
+                            
                             timeout={-2.5}
                             controlsProps={{
                                 dotActiveStyle: { backgroundColor: 'red' },
+                                nextTitle:null,
+                                prevTitle:null,
                                 cellsContent: {
                                     //'bottom-left': (<Text>SOME LOGO</Text>),
                                 }

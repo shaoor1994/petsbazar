@@ -9,7 +9,7 @@ import {View,
 
 import { useNavigation } from '@react-navigation/native';
 
-export default function FoodScreen() {
+const FoodScreen = () => {
   const navigation = useNavigation();
   return (
     <ScrollView horizontal={true} 
@@ -18,7 +18,7 @@ export default function FoodScreen() {
       
      
       <TouchableOpacity
-      onPress={()=>navigation.navigate(FoodScreen)}
+      onPress={()=>navigation.navigate('Pets Food')}
       
       >
       <Image  style={styles.ImageStyling}
@@ -50,6 +50,7 @@ export default function FoodScreen() {
   );
 }
 
+export default React.memo(FoodScreen);
 
 
 var styles = StyleSheet.create({
