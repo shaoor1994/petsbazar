@@ -8,7 +8,7 @@ export default function CatAccessoriesPics() {
     <View>
       <TouchableOpacity
         style={styles.card}
-        onPress={() => navigation.navigate("DetailScreen")}
+        onPress={() => navigation.navigate("AccessoriesDetailScreen")}
       >
         <View style={styles.cardView}>
           <Image

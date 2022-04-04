@@ -130,7 +130,12 @@ export default class Contactus extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity
-          onPress={()=> OpenAnything.Instagram('https://www.instagram.com/accounts/login/?next=/petsbazar.online/')}
+          onPress={ () => {
+            Linking.openURL(
+              'http://api.instagram.com/petsbazar.online' 
+              
+            );
+          }}
           >
 
         <Image

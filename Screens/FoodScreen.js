@@ -297,7 +297,7 @@ var styles = StyleSheet.create({
   activebutton:{
     borderColor:'#FF642E',
     borderWidth:2,
-    margin:5,
+    marginHorizontal:5,
     padding:3,
     borderRadius:10
   },

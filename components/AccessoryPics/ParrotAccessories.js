@@ -62,7 +62,8 @@ cardImage:{
     width:'50%',
     height:120,
     resizeMode:'contain',
-    borderRadius:10
+    borderRadius:10,
+    marginLeft:-25
 },
 nameStyling:{
   marginLeft:-2,
@@ -72,7 +73,7 @@ nameStyling:{
   
 },
 locationStyling:{
-  marginLeft:-110,
+  marginLeft:-165,
   marginTop:50,
   fontWeight:'bold',
   fontSize:20

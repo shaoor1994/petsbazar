@@ -1,0 +1,63 @@
+Date : 2022-04-01 10:46:15
+Directory : e:\Development\React\petsbazar\components
+Total : 34 files,  3106 codes, 287 comments, 570 blanks, all 3963 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         34 |      3,106 |        287 |        570 |      3,963 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                           | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                              |         34 |      3,106 |        287 |        570 |      3,963 |
+| AccessoryPics                                                                  |          5 |        494 |         40 |         84 |        618 |
+| ClinicDetails                                                                  |          5 |        535 |          0 |         33 |        568 |
+| FoodPics                                                                       |          3 |        324 |         25 |         48 |        397 |
+| MedicineDetails                                                                |          1 |        129 |         48 |         43 |        220 |
+| MedicinesPics                                                                  |          1 |        134 |          8 |          4 |        146 |
++--------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                       | language   | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| e:\Development\React\petsbazar\components\Accessories.js                       | JavaScript |         48 |          1 |         21 |         70 |
+| e:\Development\React\petsbazar\components\AccessoryPics\CatAccessoriessPics.js | JavaScript |        121 |          8 |          4 |        133 |
+| e:\Development\React\petsbazar\components\AccessoryPics\DogAccessoriesPics.js  | JavaScript |        121 |          8 |         23 |        152 |
+| e:\Development\React\petsbazar\components\AccessoryPics\HamsterAccessories.js  | JavaScript |         94 |          8 |         21 |        123 |
+| e:\Development\React\petsbazar\components\AccessoryPics\HenAccessories.js      | JavaScript |         91 |          8 |         19 |        118 |
+| e:\Development\React\petsbazar\components\AccessoryPics\ParrotAccessories.js   | JavaScript |         67 |          8 |         17 |         92 |
+| e:\Development\React\petsbazar\components\Api.js                               | JavaScript |         73 |         52 |         26 |        151 |
+| e:\Development\React\petsbazar\components\ArrayCode.js                         | JavaScript |         64 |          0 |         36 |        100 |
+| e:\Development\React\petsbazar\components\CameraFunc.js                        | JavaScript |         44 |          1 |          9 |         54 |
+| e:\Development\React\petsbazar\components\CatPics.js                           | JavaScript |        103 |          8 |         21 |        132 |
+| e:\Development\React\petsbazar\components\ClinicDetails\FaisalabadClinics.js   | JavaScript |        114 |          0 |          4 |        118 |
+| e:\Development\React\petsbazar\components\ClinicDetails\IslamabadClinics.js    | JavaScript |        138 |          0 |          3 |        141 |
+| e:\Development\React\petsbazar\components\ClinicDetails\KarachiClinics.js      | JavaScript |         90 |          0 |          5 |         95 |
+| e:\Development\React\petsbazar\components\ClinicDetails\LahoreClinics.js       | JavaScript |        126 |          0 |          4 |        130 |
+| e:\Development\React\petsbazar\components\ClinicDetails\RawalpindiClinics.js   | JavaScript |         67 |          0 |         17 |         84 |
+| e:\Development\React\petsbazar\components\DogGrooming.js                       | JavaScript |        109 |          2 |          9 |        120 |
+| e:\Development\React\petsbazar\components\DogPics.js                           | JavaScript |        105 |          8 |         19 |        132 |
+| e:\Development\React\petsbazar\components\FeaturedPets.js                      | JavaScript |        140 |          1 |         39 |        180 |
+| e:\Development\React\petsbazar\components\Food.js                              | JavaScript |         48 |          1 |         20 |         69 |
+| e:\Development\React\petsbazar\components\FoodPics\BirdFoodPics.js             | JavaScript |         98 |          8 |          4 |        110 |
+| e:\Development\React\petsbazar\components\FoodPics\CatFoodPics.js              | JavaScript |        112 |          8 |         24 |        144 |
+| e:\Development\React\petsbazar\components\FoodPics\DogFoodPics.js              | JavaScript |        114 |          9 |         20 |        143 |
+| e:\Development\React\petsbazar\components\HamsterPics.js                       | JavaScript |         99 |          8 |         19 |        126 |
+| e:\Development\React\petsbazar\components\Header.js                            | JavaScript |          0 |         37 |          0 |         37 |
+| e:\Development\React\petsbazar\components\HenPics.js                           | JavaScript |        108 |          8 |         23 |        139 |
+| e:\Development\React\petsbazar\components\LionPics.js                          | JavaScript |         63 |          8 |         15 |         86 |
+| e:\Development\React\petsbazar\components\MedicineDetails\MedicinesDetails.js  | JavaScript |        129 |         48 |         43 |        220 |
+| e:\Development\React\petsbazar\components\MedicinesPics\HenMedicines.js        | JavaScript |        134 |          8 |          4 |        146 |
+| e:\Development\React\petsbazar\components\MokeyPics.js                         | JavaScript |         63 |          8 |         15 |         86 |
+| e:\Development\React\petsbazar\components\Navigation.js                        | JavaScript |         37 |          0 |          3 |         40 |
+| e:\Development\React\petsbazar\components\ParrotPics.js                        | JavaScript |        117 |          8 |         20 |        145 |
+| e:\Development\React\petsbazar\components\Pets.js                              | JavaScript |        102 |          5 |         19 |        126 |
+| e:\Development\React\petsbazar\components\PetsList.js                          | JavaScript |         58 |          2 |         23 |         83 |
+| e:\Development\React\petsbazar\components\RabbitPics.js                        | JavaScript |        109 |          8 |         21 |        138 |
+| Total                                                                          |            |      3,106 |        287 |        570 |      3,963 |
++--------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

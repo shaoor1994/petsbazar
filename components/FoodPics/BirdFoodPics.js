@@ -84,6 +84,7 @@ var styles = StyleSheet.create({
     height: 120,
     resizeMode: "contain",
     borderRadius: 10,
+    marginLeft:-20
   },
   nameStyling: {
     marginLeft: 10,
@@ -92,13 +93,13 @@ var styles = StyleSheet.create({
     fontSize: 25,
   },
   locationStyling: {
-    marginLeft: -110,
+    marginLeft: -150,
     marginTop: 50,
     fontWeight: "bold",
     fontSize: 20,
   },
   priceStyling: {
-    marginLeft: -80,
+    marginLeft: -100,
     marginTop: 80,
     fontWeight: "bold",
     fontSize: 20,

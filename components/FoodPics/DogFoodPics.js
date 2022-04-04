@@ -102,7 +102,8 @@ cardImage:{
     width:'50%',
     height:120,
     resizeMode:'contain',
-    borderRadius:10
+    borderRadius:10,
+    marginLeft:-20
 },
 nameStyling:{
   //marginLeft:10,

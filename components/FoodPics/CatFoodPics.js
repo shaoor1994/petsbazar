@@ -102,7 +102,8 @@ cardImage:{
     width:'50%',
     height:120,
     resizeMode:'contain',
-    borderRadius:10
+    borderRadius:10,
+    marginLeft:-25
 },
 nameStyling:{
   marginLeft:3,
@@ -126,9 +127,9 @@ priceStyling:{
 },
 cardView:{
   flexDirection:'row',
-  borderWidth:1,
+  //borderWidth:2,
   margin:1,
-  borderColor:'blue'
+  //borderColor:'blue'
   
 },
 middleStyling:{

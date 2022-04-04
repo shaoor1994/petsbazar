@@ -17,7 +17,7 @@ import Cities from "./Cities";
 import DetailScreen from "../Screens/DetailsScreen";
 import VeterinaryClinic from "../Screens/VeterinaryClinic";
 import VeterinaryScreen from "../Screens/VeterinaryClinic";
-
+import AccessoriesDetailScreen from "../components/AccessoriesDetails/AccesoriesDetails";
 import MedicinesDetailScreen from "../components/MedicineDetails/MedicinesDetails";
 
 
@@ -218,6 +218,24 @@ export default class Drawers extends React.Component {
             )
           }}
         />
+
+<Drawer.Screen
+          name="AccessoriesDetailScreen"
+          component={AccessoriesDetailScreen}
+          options={{
+            drawerLabel: () => null,
+           // title: null,
+            drawerIcon: () => null,
+            headerTitleAlign:"center",
+            headerTitle: () => (
+              <Image
+                style={{ height: 40, width: 100, }}
+                source={require("../assets/hdricon.png")}
+              />
+            )
+          }}
+        />
+
       </Drawer.Navigator>
     );
   }

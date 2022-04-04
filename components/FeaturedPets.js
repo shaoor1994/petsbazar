@@ -1,4 +1,7 @@
 import React from 'react';
+import * as OpenAnything from "react-native-openanything";
+
+
 import {
     View, 
   Button,

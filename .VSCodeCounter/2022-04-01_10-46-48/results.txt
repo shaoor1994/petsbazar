@@ -1,0 +1,39 @@
+Date : 2022-04-01 10:46:48
+Directory : e:\Development\React\petsbazar\Screens
+Total : 15 files,  2636 codes, 265 comments, 590 blanks, all 3491 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         15 |      2,636 |        265 |        590 |      3,491 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                        | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                           |         15 |      2,636 |        265 |        590 |      3,491 |
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                    | language   | code       | comment    | blank      | total      |
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+| e:\Development\React\petsbazar\Screens\AccessoriesScreen.js | JavaScript |        248 |         27 |         72 |        347 |
+| e:\Development\React\petsbazar\Screens\CatApiList.js        | JavaScript |        123 |         13 |         13 |        149 |
+| e:\Development\React\petsbazar\Screens\Cities.js            | JavaScript |        104 |          5 |         39 |        148 |
+| e:\Development\React\petsbazar\Screens\Contactus.js         | JavaScript |        238 |          6 |         56 |        300 |
+| e:\Development\React\petsbazar\Screens\DetailsScreen.js     | JavaScript |        121 |          8 |         38 |        167 |
+| e:\Development\React\petsbazar\Screens\Drawers.js           | JavaScript |        202 |          4 |         19 |        225 |
+| e:\Development\React\petsbazar\Screens\FoodScreen.js        | JavaScript |        251 |         20 |         42 |        313 |
+| e:\Development\React\petsbazar\Screens\Grooming.js          | JavaScript |        202 |         26 |         13 |        241 |
+| e:\Development\React\petsbazar\Screens\Home.js              | JavaScript |        217 |         74 |         77 |        368 |
+| e:\Development\React\petsbazar\Screens\Medicines.js         | JavaScript |        204 |         29 |         57 |        290 |
+| e:\Development\React\petsbazar\Screens\PetsScreen.js        | JavaScript |        250 |         30 |         81 |        361 |
+| e:\Development\React\petsbazar\Screens\Sellnow.js           | JavaScript |        171 |          6 |         19 |        196 |
+| e:\Development\React\petsbazar\Screens\SplashScreen.js      | JavaScript |         90 |          8 |         15 |        113 |
+| e:\Development\React\petsbazar\Screens\TestScrollFile.js    | JavaScript |         87 |          1 |         14 |        102 |
+| e:\Development\React\petsbazar\Screens\VeterinaryClinic.js  | JavaScript |        128 |          8 |         35 |        171 |
+| Total                                                       |            |      2,636 |        265 |        590 |      3,491 |
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
