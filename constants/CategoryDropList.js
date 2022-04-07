@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Picker, View, Text, StyleSheet } from "react-native";
 
+import axios from "axios";
+
 export default class CategoryDropList extends Component {
   state = {
     selectedcat: "",
@@ -20,8 +22,8 @@ export default class CategoryDropList extends Component {
     ]
   };
 
-  async onValueChangeCat(value) {
-    this.setState({ selectedcat: value });
+   onValueChangeCat(value) {
+    this.setState({ selectedcat: value })
   }
 
   render() {

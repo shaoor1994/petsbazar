@@ -10,10 +10,9 @@ import {
   Platform,
 } from "react-native";
 
-
-const bodyParser = require('body-parser')
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: true }));
+//const bodyParser = require('body-parser')
+//router.use(bodyParser.json());
+//router.use(bodyParser.urlencoded({ extended: true }));
 
 import { withRouter } from "react-router";
 import React, { Component } from "react";
@@ -33,14 +32,63 @@ export default class Sellnow extends Component {
     this.onChangePetName = this.onChangePetName.bind(this);
     this.onChangePetTitle = this.onChangePetTitle.bind(this);
     this.onChangePetContact = this.onChangePetContact.bind(this);
+    this.onChangePetPrice = this.onChangePetPrice.bind(this);
+    this.onChangePetDescription = this.onChangePetDescription.bind(this);
+    this.onValueChangeCat= this.onValueChangeCat.bind(this);
+    this.onValueChangeCity= this.onValueChangeCity.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     // State
     this.state = {
       name: "",
       title: "",
       contact: "",
+      price: "",
+      description: "",
+      selectedcat:"",
+      selectedcity:"",
+
+      //collection categories
+      category: [
+        {
+          itemName: "Pets"
+        },
+        {
+          itemName: "Pets Food"
+        },
+        {
+          itemName: "Pets Products"
+        },
+        {
+          itemName: "Pets Accessories"
+        }
+      ],
+
+      // cities category
+      cityCategory:[
+
+        {
+          itemName: "Islamabad"
+        },
+        {
+          itemName: "Rawalpindi"
+        },
+        {
+          itemName: "Lahore"
+        },
+        {
+          itemName: "Peshawar"
+        },
+        {
+          itemName: "Karachi"
+        },
+        {
+          itemName: "Quetta"
+        }
+
+      ]
     };
   }
+
 
   /*componentDidMount() {
     axios.get('http://localhost:3000/PetsBazar/pets/' )
@@ -64,12 +112,31 @@ export default class Sellnow extends Component {
   onChangePetContact(e) {
     this.setState({ contact: e.target.value });
   }
+  onChangePetPrice(e) {
+    this.setState({ price: e.target.value });
+  }
+  onChangePetDescription(e) {
+    this.setState({ description: e.target.value });
+  }
+  // categories function
+  onValueChangeCat(e) {
+    this.setState({ selectedcat: e.targetvalue })
+  }
+
+  // city function
+  onValueChangeCity(e) {
+    this.setState({ selectedcity: e.targetvalue })
+  }
   onSubmit(e) {
     e.preventDefault();
     const petsObject = {
       name: this.state.name,
       title: this.state.title,
       contact: this.state.contact,
+      price: this.state.price,
+      description: this.state.description,
+      selectedcat:this.state.selectedcat
+      
     };
     /*axios.put('http://localhost:3000/pets/update-pets/' + petsObject)
       .then((res) => {
@@ -84,7 +151,9 @@ export default class Sellnow extends Component {
 
     axios
       .post(
-        "http://10.0.2.2:4000/pets/addpets",
+        //"http://10.0.2.2:4000/pets/addpets",
+        //"http://localhost:4000/pets/addpets",
+        "http://192.168.88.45:4000/pets/addpets",
         petsObject
       )
       .then((res) => {
@@ -93,10 +162,19 @@ export default class Sellnow extends Component {
       .catch((error) => {
         console.log(error);
       });
-    this.setState({ name: "", title: "", contact: "" });
+    this.setState({
+      name: "",
+      title: "",
+      contact: "",
+      price: "",
+      description: "",
+      selectedcat:"",
+      selectedcity:""
+    });
   }
 
   render() {
+    //let {name,title,contact} = this.state;
     return (
       <ScrollView
         nestedScrollEnabled={true}
@@ -112,50 +190,122 @@ export default class Sellnow extends Component {
                 style={styles.formInput}
                 multiline
                 placeholder="Please Enter Your Name"
+                maxLength={15}
                 value={this.state.name}
                 onChange={this.onChangePetName}
+                blurOnSubmit={true}
+                onChangeText={(name) => this.setState({ name })}
               />
 
               <Text style={styles.formText}>Category</Text>
 
-              <CategoryDropList />
+             { /*<CategoryDropList />*/ }
+
+             <View style={styles.viewStyle}>
+            
+             <Picker
+          
+           itemStyle={styles.itemStyle}
+            mode="dropdown"
+           style={styles.pickerStyle}
+            selectedValue={this.state.selectedcat}
+           // onValueChange={this.onValueChangeCat.bind(this)}
+           //onValueChange={(selectedcat)=>this.setState({selectedcat})}
+           onValueChange={(itemValue,itemIndex)=> this.setState({selectedcat:itemValue})}
+        
+          >
+            {this.state.category.map((item, index) => (
+              <Picker.Item
+               
+                color="black"
+                label={item.itemName}
+                value={item.itemName}
+                index={index}
+              />
+            ))}
+          </Picker>
+         
+          </View>
+
+              
 
               <Text style={styles.formText}>Pet/Product Title</Text>
               <TextInput
                 style={styles.formInput}
                 placeholder="Enter Product Title"
-                multiline
+                maxLength={15}
                 value={this.state.title}
+                blurOnSubmit={true}
                 onChange={this.onChangePetTitle}
+                onChangeText={(title) => this.setState({ title })}
               />
 
               <Text style={styles.formText}>City</Text>
 
-              <CityDropList />
+              {/*<CityDropList />*/}
 
+              <View style={styles.viewStyle}>
+
+              <Picker
+          
+           itemStyle={styles.itemStyle}
+            mode="dropdown"
+           style={styles.pickerStyle}
+            selectedValue={this.state.selectedcity}
+           onValueChange={(itemValue,itemIndex)=> this.setState({selectedcity:itemValue})}
+        
+          >
+            {this.state.category.map((item, index) => (
+              <Picker.Item
+               
+                color="black"
+                label={item.itemName}
+                value={item.itemName}
+                index={index}
+              />
+            ))}
+          </Picker>
+
+          </View>
               <Text style={styles.formText}> Contact Number </Text>
               <TextInput
                 style={styles.formInput}
-                multiline
                 placeholder="Phone Number"
                 inputType="number"
+                maxLength={11}
+                keyboardType="number-pad"
+                blurOnSubmit={true}
                 value={this.state.contact}
                 onChange={this.onChangePetContact}
+                onChangeText={(contact) => this.setState({ contact })}
               />
               <Text style={styles.formText}>Price</Text>
               <TextInput
                 style={styles.formInput}
                 multiline
                 placeholder="Enter Price"
+                inputType="number"
+                keyboardType="number-pad"
+                blurOnSubmit={true}
+                maxLength={7}
+                value={this.state.price}
+                onChange={this.onChangePetPrice}
+                onChangeText={(price) => this.setState({ price })}
               />
               <Text style={styles.formText}>Image of Product</Text>
               <ImagePickerExample />
-              <Text style={styles.formText}>Description(Optional)</Text>
+              <Text style={styles.formText}>
+                Description(Optional max 150 words)
+              </Text>
               <TextInput
                 style={styles.descriptionInput}
                 multiline
-                numberOfLines={8}
                 placeholder="Describe your product"
+                maxLength={150}
+                blurOnSubmit={true}
+                value={this.state.description}
+                onChange={this.onChangePetDescription}
+                onChangeText={(description) => this.setState({ description })}
               />
               <TouchableOpacity style={styles.btn} onPress={this.onSubmit}>
                 <Text style={styles.btnTxt}>Submit</Text>
@@ -269,4 +419,42 @@ var styles = StyleSheet.create({
     backgroundColor: "#ff9933",
     padding: 8,
   },
+  itemStyle: {
+    fontSize: 10,
+    fontFamily: "Roboto-Regular",
+    color: "black",
+    
+    
+    
+  },
+  pickerStyle: {
+    width: "73%",
+    height: 40,
+    color: "black",
+    fontSize: 14,
+    fontFamily: "Roboto-Regular",
+    //marginLeft:-100,
+   // alignItems:"flex-start"
+
+},
+  textStyle: {
+    fontSize: 14,
+    fontFamily: "Roboto-Regular",
+    textAlign:'left'
+
+    
+  },
+  viewStyle: {
+    // flex: 1,
+     alignSelf: "center",
+     flexDirection: "row",
+     width: "140%",
+     justifyContent: "space-between",
+     alignItems: "flex-start",
+     borderWidth:1,
+     height:'5%',
+     backgroundColor:'white',
+     borderRadius:10,
+     margin:7
+   }
 });

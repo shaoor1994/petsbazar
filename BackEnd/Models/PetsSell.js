@@ -6,15 +6,31 @@
  // List of columns for pets schema
  let Pets = new Schema({
  name: {
- type: String
+ type: String,
+ require:true
  },
  title: {
- type: String
+ type: String,
+ require:true
  },
  
  contact: {
- type: Number
- }
+ type: Number,
+ require:true
+ },
+ price: {
+  type: Number,
+  require:true
+  },
+  description:{
+    type:String
+  },
+  selectedcat:{
+    type:String
+  },
+  selectedcity:{
+    type:String
+  }
  },{
  collection: 'pets'
  });
