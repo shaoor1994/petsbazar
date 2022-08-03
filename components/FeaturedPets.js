@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import * as OpenAnything from "react-native-openanything";
-
+import { useNavigation } from "@react-navigation/native";
 
 import {
     View, 
@@ -10,13 +10,37 @@ import {
   StyleSheet,
   Text,
   Linking,
-    Alert
+    Alert,
+    Platform
   } from 'react-native';
+import axios from 'axios';
 
 
 
+export default function FeaturedPets(itemData) {
 
-export default function FeaturedPets() {
+  const navigation = useNavigation();
+
+  const [data, setData] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+
+  const getDataUsingSimpleGetCall = () => {
+    axios
+      .get(
+        Platform.OS === "android"
+          ? "http://192.168.77.23:4000/pets"
+          : " http://10.0.2.2:4000/pets"
+      )
+      .then((json) => setData(json.data))
+      .finally(() => setLoading(false));
+    console.log("Display Data", data);
+  };
+
+  useEffect(() => {
+    getDataUsingSimpleGetCall();
+  }, []);
+
+
     const whatsappHandler = () => {
 
       Alert.alert(
@@ -58,16 +82,95 @@ export default function FeaturedPets() {
 
 
     }
+
+    Feauter1= (itemData) => {
+      
+    let url =
+    Platform.OS === "android"
+      ? `http://192.168.77.23:2000/image/file-1659429603017.png`
+      : `http://10.0.2.2:2000/image/file-1659429603017.png`;
+    
+      return(
+      <TouchableOpacity
+    
+      onPress={() => navigation.navigate("DetailScreen",{itemData})}
+      
+      >
+      <Image
+      style = {styles.LeftImageStyling}
+      source={{ uri: url }}/>
+
+      </TouchableOpacity>)
+    }
+
+    Feauter2= (itemData) => {
+      
+      let url =
+      Platform.OS === "android"
+        ? `http://192.168.77.23:2000/image/file-1658921191100.jpg`
+        : `http://10.0.2.2:2000/image/file-1658921191100.jpg`;
+      
+        return(
+        <TouchableOpacity
+      
+        onPress={() => navigation.navigate("DetailScreen",{itemData})}
+        
+        >
+        <Image
+        style = {styles.RightImageStyling}
+        source={{ uri: url }}/>
+  
+        </TouchableOpacity>)
+      }
+
+      Feauter3= (itemData) => {
+      
+        let url =
+        Platform.OS === "android"
+          ? `http://192.168.77.23:2000/image/file-1658741958120.jpeg`
+          : `http://10.0.2.2:2000/image/file-1658741958120.jpeg`;
+        
+          return(
+          <TouchableOpacity
+        
+          onPress={() => navigation.navigate("DetailScreen",{itemData})}
+          
+          >
+          <Image
+          style = {styles.LeftImageStyling}
+          source={{ uri: url }}/>
+    
+          </TouchableOpacity>)
+        }
+    
+        Feauter4= (itemData) => {
+          
+          let url =
+          Platform.OS === "android"
+            ? `http://192.168.77.23:2000/image/file-1659440227139.png`
+            : `http://10.0.2.2:2000/image/file-1659440227139.png`;
+          
+            return(
+            <TouchableOpacity
+          
+            onPress={() => navigation.navigate("DetailScreen",{itemData})}
+            
+            >
+            <Image
+            style = {styles.RightImageStyling}
+            source={{ uri: url }}/>
+      
+            </TouchableOpacity>)
+          }
+    
+
   return (
 
 <>
     <View style={styles.upperView}>
 
     <View>
-    
-    <Image
-    style = {styles.LeftImageStyling}
-    source = {require('../assets/FeaturedPets/UpdatedDogSquare.jpeg')}/>
+   <Feauter1/>
     <TouchableOpacity style={styles.TouchableOpacityStylingLeft}
     
     onPress={whatsappHandler}
@@ -78,9 +181,7 @@ export default function FeaturedPets() {
 
 
      <View>
-    <Image
-    style ={styles.RightImageStyling}
-    source = {require('../assets/FeaturedPets/UpdatedCatSquare.jpeg')}/>
+    <Feauter2/>
     <TouchableOpacity style={styles.TouchableOpacityStylingRight}
     onPress={whatsappHandler}
     >
@@ -92,9 +193,7 @@ export default function FeaturedPets() {
 
     <View style={styles.bottomView}>
     <View>
-    <Image 
-    style={styles.LeftImageStyling}
-    source={require('../assets/FeaturedPets/LionSquare.jpg')}/>
+   <Feauter3/>
     <TouchableOpacity style={styles.TouchableOpacityStylingLeft}
     onPress={whatsappHandler}
     >
@@ -102,9 +201,7 @@ export default function FeaturedPets() {
     </TouchableOpacity>
     </View>
     <View>
-    <Image 
-    style={styles.RightImageStyling}
-    source={require('../assets/FeaturedPets/ParrotSquare.jpeg')}/>
+  <Feauter4/>
     <TouchableOpacity  style={styles.TouchableOpacityStylingRight}
     onPress={whatsappHandler}
     >

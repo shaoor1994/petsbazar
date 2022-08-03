@@ -1,6 +1,5 @@
-
-
-  const mongoose = require('mongoose');
+const { Timestamp } = require('mongodb');
+const mongoose = require('mongoose');
  const Schema = mongoose.Schema;
  
  // List of columns for pets schema
@@ -26,13 +25,35 @@
     type:String
   },
   selectedcat:{
-    type:String
+    type:String,
+    require:true
   },
   selectedcity:{
-    type:String
-  }
- },{
+    type:String,
+    require:true
+  },
+  //_id: mongoose.Schema.Types.ObjectId,
+  
+  imgforsell:{
+    type:String,
+    require:true,
+  //  base64: String,
+//imageFormat: String
+    data: Buffer, 
+    //contentType: String
+    //type:Buffer
+  },
+ // user_id: Schema.ObjectId,
+	//is_delete: { type: Boolean, default: false },
+	date : { type : Date, default: Date.now }
+ },
+ { timestamps: true },
+{
  collection: 'pets'
- });
+ }
  
- module.exports = mongoose.model('Pets', Pets);
+ 
+ );
+ 
+ const petModel = mongoose.model('pets', Pets);
+ module.exports = petModel;

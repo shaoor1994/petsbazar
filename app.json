@@ -4,7 +4,7 @@
     "slug": "petsbazar",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/pnglogo.png",
+    "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/PETSBAZAR-LOGO.png",
       "resizeMode": "contain",
@@ -32,7 +32,15 @@
         "foregroundImage": "./assets/UpdatedIcon.png",
         "backgroundColor": "#FFFFFF"
         
-      }
+      },
+      "permissions": [
+        "CAMERA",
+        "CAMERA_ROLL",
+        "READ_INTERNAL_STORAGE",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "RECORD_AUDIO"
+      ]
  
     },
     "web": {

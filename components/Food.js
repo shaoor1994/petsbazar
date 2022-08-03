@@ -18,32 +18,66 @@ const FoodScreen = () => {
       
      
       <TouchableOpacity
-      onPress={()=>navigation.navigate('Pets Food')}
+      onPress={()=>navigation.navigate('Cat Food')}
       
       >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/Food/CatFood.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+      onPress={()=>navigation.navigate('Dog Food')}
+      
+      >
+      <Image  style={styles.ImageStyling}
+      
+      source = {require('../assets/Food/DogFood.png')}   />
+      </TouchableOpacity>
+      <TouchableOpacity 
+      
+      onPress={()=>navigation.navigate('Birds Food')}
+      
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/Food/BirdsFood.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity  
+      
+      onPress={()=> navigation.navigate('Hamster Food') }
+      
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/Food/HamsterFood.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+      
+      onPress={()=>navigation.navigate('Rabbit Food')}
+      
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/Food/RabbitFood.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+      
+      onPress={()=>navigation.navigate('Hen Food')}
+      
+      >
       <Image  style={styles.ImageStyling}
       
       source = {require('../assets/Food/HenFood.png')}   />
+      </TouchableOpacity>
+
+      <TouchableOpacity
+      
+      onPress={()=>navigation.navigate('Aquatic Food')}
+      
+      >
+      <Image  style={styles.ImageStyling}
+      
+      source = {require('../assets/Food/aquaticfood.png')}   />
       </TouchableOpacity>
       
     </ScrollView>

@@ -3,60 +3,163 @@ import {View,
   ScrollView ,
    Image,
    TouchableOpacity,
-  StyleSheet
+  StyleSheet,
+  FlatList,
+  SafeAreaView,
+  StatusBar,
+  ImageBackground
+  
   } from 'react-native';
+  //import PetsList from '../constants/PetsList';
   import { useNavigation } from '@react-navigation/native';
 
 
+  /*const DATA = [
+    {
+      id: "1",
+      title: "Cat",
+      image:<Image source = {require('../assets/Pets/Cat.png')}/>
+    },
+    {
+      id: "2",
+      title: "Lion",
+      image:<Image source = {require('../assets/Pets/Lion.png')}/>
+    },
+    {
+      id: "3",
+      title: "Monkey",
+      image:<Image source = {require('../assets/Pets/Monkey.png')}/>
+    },
+    {
+      id: "4",
+      title: "Hen",
+      image:<Image source = {require('../assets/Pets/Hen.png')}/>
+    },
+    {
+      id: "5",
+      title: "Birds",
+      image:<Image source = {require('../assets/Pets/Birds.png')}/>
+    },
+    {
+      id: "6",
+      title: "Rabbit",
+      image:<Image source = {require('../assets/Pets/Rabbit.png')}/>
+    },
+    {
+      id: "7",
+      title: "Dog",
+      image:<Image source = {require('../assets/Pets/Dog.png')}/>
+    },
+  ];
+  const Item = ({ image }) => (
+    <View >
+      <Image source={require('image')}/>
+    </View>
+  );*/
+
 const PetsScreen = ( ) => {
+
 
   const navigation = useNavigation();
   return (
+   /*
+   <SafeAreaView style={styles.container}>
+
+<FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        horizontal={true}
+        nestedScrollEnabled={true}
+      />
+
+
+   </SafeAreaView>
+   
+   */
+   
+   
     <ScrollView horizontal={true} 
     showsHorizontalScrollIndicator={false}
     >
       
      
-      <TouchableOpacity style={styles.TouchableOpacityStyle}
-
-      onPress={()=>navigation.navigate('Pets')}
+      <TouchableOpacity 
+   
+      onPress={()=>navigation.navigate('Cats')}
       >
-      <Image  style={styles.catImage}
+      <Image  style={styles.ImageStyling}
       
-      source = {require('../assets/Pets/Cat.png')}   />
+      source = {require('../assets/PetsEdited/Cat.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity>
-      <Image  style={styles.lionImage}
+      <TouchableOpacity  
       
-      source = {require('../assets/Pets/Lion.png')}   />
+      onPress={()=>navigation.navigate('Dogs')}
+      
+      >
+      <Image  style={styles.ImageStyling}
+      
+      source = {require('../assets/PetsEdited/Dog.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity>
-      <Image  style={styles.monkeyImage}
+      <TouchableOpacity 
       
-      source = {require('../assets/Pets/Monkey.png')}   />
+      onPress={()=>navigation.navigate('Hens')}
+      
+      >
+      <Image  style={styles.ImageStyling}
+      
+      source = {require('../assets/PetsEdited/Hen.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity>
-      <Image  style={styles.henImage}
+      <TouchableOpacity 
       
-      source = {require('../assets/Pets/Hen.png')}   />
+      onPress={()=> navigation.navigate('Rabbits')}
+      
+      >
+      <Image  style={styles.ImageStyling}
+      
+      source = {require('../assets/PetsEdited/Rabbit.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity>
-      <Image  style={styles.birdsImage}
+      <TouchableOpacity
       
-      source = {require('../assets/Pets/Birds.png')}   />
+      onPress={()=> navigation.navigate('Wild Animals')}
+      
+      >
+      <Image  style={styles.ImageStyling}
+      
+      source = {require('../assets/PetsEdited/lion1.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity>
-      <Image  style={styles.rabbitImage}
+      <TouchableOpacity 
       
-      source = {require('../assets/Pets/Rabbit.png')}   />
+      onPress={()=>navigation.navigate("Parrots")}
+      
+      >
+      <Image style={styles.ImageStyling}
+      
+      source = {require('../assets/PetsEdited/Birds.png')}   />
       </TouchableOpacity>
-      <TouchableOpacity>
-      <Image  style={styles.dogImage}
+      <TouchableOpacity  
       
-      source = {require('../assets/Pets/Dog.png')}   />
+      onPress={()=> navigation.navigate("Monkeys")}
+
+      >
+      <Image style={styles.ImageStyling}
+      
+      source = {require('../assets/PetsEdited/Monkey.png')}   />
+      </TouchableOpacity>
+      <TouchableOpacity    
+      
+      onPress={()=>navigation.navigate("Hamsters")}
+      
+      >
+      <Image  style={styles.ImageStyling}
+      
+      source = {require('../assets/PetsEdited/Hamster.png')}   />
       </TouchableOpacity>
       
     </ScrollView>
+    
+
+    
   );
 }
 
@@ -64,62 +167,15 @@ export default React.memo(PetsScreen);
 
 var styles = StyleSheet.create({
 
-catImage:{
-  height:250,
-  width:200,
-  resizeMode:'cover',
-  marginTop:-45,
-  marginBottom:60,
-  marginRight:-120,
-  marginLeft:-15
-},
-lionImage:{
-  height:197,
-  width:200,
-  resizeMode:'cover',
-  marginTop:-20,
-  marginLeft:29
-},
-monkeyImage:{
-  height:210,
-  width:200,
-  resizeMode:'cover',
-  marginTop:-32,
-  marginRight:-30,
-  marginLeft:-70
-},
-henImage:{
-  height:233,
-  width:200,
-  resizeMode:'cover',
-  marginTop:-45,
-  marginLeft:-37
-},
-birdsImage:{
-  height:193,
-  width:200,
-  resizeMode:'cover',
-  marginTop:-22,
-  marginLeft:-82
-},
-rabbitImage:{
-  height:257,
-  width:200,
-  resizeMode:'cover',
-  marginTop:-60,
-  marginLeft:-75,
-  //marginRight:0
-},
-dogImage:{
-  height:327,
-  width:200,
-  resizeMode:'cover',
-  marginTop:-77,
-  marginLeft:-75
-},
-/*TouchableOpacityStyle:{
-  height:90,
-  width:70
-}*/
+
+
+ImageStyling:{
+  height:150,
+  width:150,
+  //margin:-10
+  marginLeft:-8,
+  marginRight:-15
+}
+
 
 });

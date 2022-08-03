@@ -1,153 +1,169 @@
-import { View,
-    Image,
-    StyleSheet,
-    TouchableOpacity,
-    Text
+import React, { useState, useEffect, useMemo } from "react";
+import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  StatusBar,
+  FlatList,
+  Image,
+  ImageBackground,
+  Platform,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-} from 'react-native'
-import React from 'react'
-import { useNavigation } from '@react-navigation/native';
+const DogAccessoriesPics = () => {
+  const navigation = useNavigation();
+  const [data, setData] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
-export default function DogAccessoriesPics() {
-const navigation = useNavigation();
-return (
-<View>
-<TouchableOpacity style={styles.card}
+  const getDogAccessories = () => {
+    axios
+      .get(
+        Platform.OS === "android"
+          ? "http://192.168.77.23:4000/pets"
+          : " http://10.0.2.2:4000/pets"
+      )
+      .then((json) => setData(json.data))
+      .finally(() => setLoading(false));
+    console.log("Display Data", data);
+  };
 
-onPress={()=>navigation.navigate('DetailScreen')}
+  useEffect(() => {
+    getDogAccessories();
+  }, []);
+  //const memoizedValue = useMemo(() => getDogAccessories());
 
->
-<View style={styles.cardView}>
-  <Image  style={styles.cardImage}
-  source = {require('../../assets/DogAccessories/DogAccessories1.jpg')}   />
-  <Text style={styles.nameStyling}>Self Cleaner</Text>
-  <Text style={styles.selfCleaner}>Rawalpindi</Text>
-  <Text style={styles.priceStyling}>Rs.4000/-</Text>
-  </View>
-  </TouchableOpacity>
+  const _renderItem = (itemData) => {
+    let url =
+      Platform.OS === "android"
+        ? `http://192.168.77.23:2000/image/${itemData.item.image}`
+        : `http://10.0.2.2:2000/image/${itemData.item.image}`;
+    if (itemData.item.category == "Dog-Accessories") {
+      return (
+        console.log(itemData),
+        (
+          <View style={styles.containerFlate}>
+            <TouchableOpacity
+              style={styles.buttonStyle}
+              onPress={() => navigation.navigate("DetailScreen", { itemData })}
+            >
+              <View style={styles.innerContainer}>
+                <View style={{ marginLeft: 10 }}>
+                  <Image style={styles.imgsettings} source={{ uri: url }} />
+                </View>
 
-  <TouchableOpacity style={styles.card}>
-  <View style={styles.cardView}>
-  <Image  style={styles.cardImage}
-  
-  source = {require('../../assets/DogAccessories/DogAccessories2.jpg')}   />
-  <Text style={styles.nameStyling}>Harness + Lead</Text>
-  <Text style={styles.middleStyling}>Rawalpindi</Text>
-  <Text style={styles.priceStyling}>Rs.4000/-</Text>
-  </View>
-  </TouchableOpacity>
-  <TouchableOpacity style={styles.card}>
-  <View style={styles.cardView}>
-  <Image  style={styles.cardImage}
-  
-  source = {require('../../assets/DogAccessories/DogAccessories3.jpg')}   />
-  <Text style={styles.nameStyling}>Pet Food Bowl</Text>
-  <Text style={styles.locationStyling}>Rawalpindi</Text>
-  <Text style={styles.priceStyling}>Rs.4000/-</Text>
-  </View>
-  </TouchableOpacity>
-  <TouchableOpacity style={styles.card}>
-  <View style={styles.cardView}>
-  <Image  style={styles.cardImage}
-  
-  source = {require('../../assets/DogAccessories/DogAccessories4.jpg')}   />
-  <Text style={styles.nameStyling}>Bonnie Cat Food</Text>
-  <Text style={styles.middleStyling}>Rawalpindi</Text>
-  <Text style={styles.priceStyling}>Rs.4000/-</Text>
-  </View>
-  </TouchableOpacity>
-  <TouchableOpacity style={styles.card}>
-  <View style={styles.cardView}>
-  <Image  style={styles.cardImage}
-  
-  source = {require('../../assets/DogAccessories/DogAccessories5.jpg')}   />
-  <Text style={styles.nameStyling}>Leather Collar</Text>
-  <Text style={styles.collar}>Rawalpindi</Text>
-  <Text style={styles.priceStyling}>Rs.4000/-</Text>
-  </View>
-  </TouchableOpacity>
- 
+                <View
+                  style={{ marginLeft: 60, marginRight: -20, marginTop: -20 }}
+                >
+                  <Text style={styles.title}>{itemData.item.name}</Text>
+                  <Text style={styles.details}>{itemData.item.price}</Text>
+                  <Text style={styles.details}>{itemData.item.city}</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+        )
+      );
+    }
+  };
 
-</View>
-)
-}
+  return (
+    <View style={styles.container}>
+      <SafeAreaView>
+        <FlatList
+          data={data}
+          renderItem={_renderItem}
+          keyExtractor={(item, index) => item.id}
+          width={400}
+          contentContainerStyle={{
+            paddingBottom: 50,
+            paddingRight: 30,
+            //alignSelf: "center",
+            //alignItems:'center',
+            alignContent: "center",
+            justifyContent: "space-between",
+            paddingTop:10
+          }}
+          onEndReachedThreshold={0.2}
+          //maxToRenderPerBatch={20}
+        />
+      </SafeAreaView>
 
+      {/*isLoading && 
+                <TouchableOpacity
+                    style={styles.buttonStyle}
+                    onPress={getDogAccessories}>
+                    <Text>Simple Get Call</Text>
+                </TouchableOpacity>
+           */}
+    </View>
+  );
+};
 
-var styles = StyleSheet.create({
-
-
-
-ImageStyling:{
-    height:100,
-    width:100,
-    //margin:-10
-   // marginLeft:-10,
-    //marginRight:-10,
-    resizeMode:'cover'
-} ,
-card:{
-    backgroundColor:'#fff',
-    marginBottom:10,
-    marginLeft:'2%',
-    width:"100%",
-    shadowColor:'#000',
-   /* shadowOpacity:1,
-    shadowOffset:{
-        height:3,
-        width:3
-    }*/
-
-},
-cardImage:{
-    width:'50%',
-    height:120,
-    resizeMode:'contain',
-    borderRadius:10,
-    marginLeft:-20
-},
-nameStyling:{
-  marginLeft:3,
-  marginTop:10,
-  fontWeight:'bold',
-  fontSize:25
-  
-},
-locationStyling:{
-  marginLeft:-110,
-  marginTop:50,
-  fontWeight:'bold',
-  fontSize:20
-  
-},
-priceStyling:{
-  marginLeft:-80,
-  marginTop:80,
-  fontWeight:'bold',
-  fontSize:20
-},
-cardView:{
-  flexDirection:'row'
-},
-middleStyling:{
-  marginLeft:-125,
-  marginTop:50,
-  fontWeight:'bold',
-  fontSize:20
-},
-collar:{
-
-  marginLeft:-100,
-  marginTop:50,
-  fontWeight:'bold',
-  fontSize:20
-
-},
-selfCleaner:{
-  marginLeft:-95,
-  marginTop:50,
-  fontWeight:'bold',
-  fontSize:20
-}
-
-
+const styles = StyleSheet.create({
+  containerFlate: {
+    flex: 1,
+    marginVertical: 5,
+    marginHorizontal: 14,
+    height: 130,
+    width: "93%",
+    borderRadius: 8,
+    elevation: 4,
+    backgroundColor: "#ffffff",
+    shadowColor: "black",
+    shadowOpacity: 0.25,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowRadius: 8,
+  },
+  buttonStyle: {
+    justifyContent: "center",
+    // alignItems: 'center',
+    // backgroundColor: '#DDDDDD',
+    // padding: 10,
+    alignSelf: "center",
+    width: "100%",
+    //marginTop: 400,
+  },
+  innerContainer: {
+    // flex: 1,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    // padding:5,
+    alignItems: "center",
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 22,
+    color: "black",
+    marginRight: -30,
+    //marginVertical:5
+    // marginLeft:10
+  },
+  details: {
+    fontWeight: "bold",
+    fontSize: 17,
+    color: "black",
+    marginRight: -30,
+    //marginVertical:5
+    // marginLeft:10
+  },
+  imgsettings: {
+    height: 127,
+    width: 127,
+    resizeMode: "cover",
+    marginLeft: -100,
+    borderColor: "grey",
+    borderRadius: 15,
+    borderWidth: 1,
+  },
 });
+
+export default DogAccessoriesPics;

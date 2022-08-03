@@ -8,7 +8,7 @@ export default function ImagePickerExample() {
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
@@ -16,10 +16,25 @@ export default function ImagePickerExample() {
 
     console.log(result);
 
-    if (!result.cancelled) {
+   /* if (!result.cancelled) {
       setImage(result.uri);
+    }*/
+
+    if (!result.cancelled){
+      serImage(uploadImage(result.uri).then(()=>{
+        Alert.alert("Success")
+      }).catch((error)=>{
+        Alert.alert('error:',error.message)
+      }))
     }
   };
+
+  let uploadImage = async (uri,imgforsell) => {
+    const response = await fetch(uri);
+    const blob  = await response.blob();
+    var ref = axios.post("http://192.168.10.12:4000/pets/addpets",imgforsell);
+    return ref.put(blob);
+  }
 
   return (
     <View >
@@ -27,7 +42,7 @@ export default function ImagePickerExample() {
       <TouchableOpacity style={styles.btn} onPress={pickImage}>
       <Text style={styles.btnTxt}> Choose File</Text> 
       </TouchableOpacity>
-      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200,marginLeft:50 }} />}
     </View>
   );
 }

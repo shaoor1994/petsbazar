@@ -1,132 +1,160 @@
-import { View, Image, StyleSheet, TouchableOpacity, Text } from "react-native";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  StatusBar,
+  FlatList,
+  Image,
+  ImageBackground,
+  Platform,
+} from "react-native";
 
-export default function CatAccessoriesPics() {
+const CatAccessoriesPics = () => {
   const navigation = useNavigation();
-  return (
-    <View>
-      <TouchableOpacity
-        style={styles.card}
-        onPress={() => navigation.navigate("AccessoriesDetailScreen")}
-      >
-        <View style={styles.cardView}>
-          <Image
-            style={styles.cardImage}
-            source={require("../../assets/CatAccessories/CatAccessory1.jpg")}
-          />
-          <Text style={styles.nameStyling}>Cat Nail Cutter</Text>
-          <Text style={styles.locationStyling}>Rawalpindi</Text>
-          <Text style={styles.priceStyling}>Rs.4000/-</Text>
-        </View>
-      </TouchableOpacity>
+  const [data, setData] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
-      <TouchableOpacity style={styles.card}>
-        <View style={styles.cardView}>
-          <Image
-            style={styles.cardImage}
-            source={require("../../assets/CatAccessories/CatAccessory2.jpg")}
-          />
-          <Text style={styles.nameStyling}>Bell Bow Tie</Text>
-          <Text style={styles.LoctStyling}>Rawalpindi</Text>
-          <Text style={styles.priceStyling}>Rs.4000/-</Text>
+  const getDataUsingSimpleGetCall = () => {
+    axios
+      .get(
+        Platform.OS === "android"
+          ? "http://192.168.10.6:4000/pets"
+          : " http://10.0.2.2:4000/pets"
+      )
+      .then((json) => setData(json.data))
+      .finally(() => setLoading(false));
+    console.log("Display Data", data);
+  };
+
+  useEffect(() => {
+    getDataUsingSimpleGetCall();
+  }, []);
+
+
+
+
+  const _renderItem = (itemData) => {
+    let url =
+      Platform.OS === "android"
+        ? `http://192.168.10.6:2000/image/${itemData.item.image}`
+        : `http://10.0.2.2:2000/image/${itemData.item.image}`;
+if (itemData.item.category == "Cat-Accessories") {
+    return (
+      console.log(itemData),
+      (
+        <View style={styles.containerFlate}>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            onPress={() => navigation.navigate("DetailScreen", { itemData })}
+          >
+            <View style={styles.innerContainer}>
+              <View style={{ marginLeft: 10 }}>
+                <Image style={styles.imgsettings} source={{ uri: url }} />
+              </View>
+
+              <View style={{ marginLeft: 60,marginRight:-20, marginTop: -20 }}>
+                <Text style={styles.title}>{itemData.item.name}</Text>
+                <Text style={styles.details}>{itemData.item.price}</Text>
+                <Text style={styles.details}>{itemData.item.city}</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
         </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.card}>
-        <View style={styles.cardView}>
-          <Image
-            style={styles.cardImage}
-            source={require("../../assets/CatAccessories/CatAccessory3.jpg")}
-          />
-          <Text style={styles.nameStyling}>Hair Remover </Text>
-          <Text style={styles.locationStyling}>Rawalpindi</Text>
-          <Text style={styles.priceStyling}>Rs.4000/-</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.card}>
-        <View style={styles.cardView}>
-          <Image
-            style={styles.cardImage}
-            source={require("../../assets/CatAccessories/CatAccessory4.jpg")}
-          />
-          <Text style={styles.nameStyling}>Self Cleaner</Text>
-          <Text style={styles.LoctStyling}>Rawalpindi</Text>
-          <Text style={styles.priceStyling}>Rs.4000/-</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.card}>
-        <View style={styles.cardView}>
-          <Image
-            style={styles.cardImage}
-            source={require("../../assets/CatAccessories/CatAccessory5.jpeg")}
-          />
-          <Text style={styles.nameStyling}>Cat House</Text>
-          <Text style={styles.CatHouse}>Rawalpindi</Text>
-          <Text style={styles.priceStyling}>Rs.4000/-</Text>
-        </View>
-      </TouchableOpacity>
+      )
+    );} 
+      
+  };
+
+
+
+  return (
+    <View style={styles.container}>
+      <FlatList
+        data={data}
+        renderItem={_renderItem}
+        keyExtractor={(item) => item.id}
+        //width={400}
+        contentContainerStyle={{paddingBottom:40}}
+      />
+
+      {/*isLoading && 
+                <TouchableOpacity
+                    style={styles.buttonStyle}
+                    onPress={getDataUsingSimpleGetCall}>
+                    <Text>Simple Get Call</Text>
+                </TouchableOpacity>
+           */}
+
+      <StatusBar />
     </View>
   );
-}
+};
 
-var styles = StyleSheet.create({
-  ImageStyling: {
-    height: 100,
-    width: 100,
-    //margin:-10
-    // marginLeft:-10,
-    //marginRight:-10,
-    resizeMode: "cover",
+const styles = StyleSheet.create({
+  containerFlate: {
+    flex: 1,
+    marginVertical: 5,
+    marginHorizontal: 14,
+    height: 130,
+    width: "93%",
+    borderRadius: 8,
+    elevation: 4,
+    backgroundColor: "#ffffff",
+    shadowColor: "black",
+    shadowOpacity: 0.25,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowRadius: 8,
   },
-  card: {
-    backgroundColor: "#fff",
-    marginBottom: 10,
-    marginLeft: "2%",
+  buttonStyle: {
+    justifyContent: "center",
+    // alignItems: 'center',
+    // backgroundColor: '#DDDDDD',
+    // padding: 10,
+    alignSelf: "center",
     width: "100%",
-    shadowColor: "#000",
-    /* shadowOpacity:1,
-    shadowOffset:{
-        height:3,
-        width:3
-    }*/
+    //marginTop: 400,
   },
-  cardImage: {
-    width: "50%",
-    height: 120,
-    resizeMode: "contain",
-    borderRadius: 10,
-  },
-  nameStyling: {
-    marginLeft: 3,
-    marginTop: 10,
-    fontWeight: "bold",
-    fontSize: 25,
-  },
-  locationStyling: {
-    marginLeft: -110,
-    marginTop: 50,
-    fontWeight: "bold",
-    fontSize: 20,
-  },
-  priceStyling: {
-    marginLeft: -80,
-    marginTop: 80,
-    fontWeight: "bold",
-    fontSize: 20,
-  },
-  cardView: {
+  innerContainer: {
+    // flex: 1,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
     flexDirection: "row",
+    // padding:5,
+    alignItems: "center",
   },
-  LoctStyling: {
-    marginLeft: -90,
-    marginTop: 50,
+  title: {
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 22,
+    color: "black",
+    marginRight: -30,
+    //marginVertical:5
+    // marginLeft:10
   },
-  CatHouse: {
-    marginLeft: -70,
-    marginTop: 50,
+  details: {
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 17,
+    color: "black",
+    marginRight: -30,
+    //marginVertical:5
+    // marginLeft:10
+  },
+  imgsettings: {
+    height: 127,
+    width: 127,
+    resizeMode: "cover",
+    marginLeft: -100,
+    borderColor: "grey",
+    borderRadius: 15,
+    borderWidth: 1,
   },
 });
+
+export default CatAccessoriesPics;
