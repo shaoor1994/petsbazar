@@ -91,16 +91,23 @@ export default function FeaturedPets(itemData) {
       : `http://10.0.2.2:2000/image/file-1659429603017.png`;
     
       return(
+        <View>
       <TouchableOpacity
     
-      onPress={() => navigation.navigate("DetailScreen",{itemData})}
+      onPress={() => navigation.navigate('FeaturePetScreenOne')}
       
       >
       <Image
       style = {styles.LeftImageStyling}
       source={{ uri: url }}/>
 
-      </TouchableOpacity>)
+      </TouchableOpacity>
+      
+      <Text  style={{fontWeight:'bold', alignSelf:'center',marginLeft:17,marginVertical:5}}  >Lions </Text>
+      </View>
+      
+      
+      )
     }
 
     Feauter2= (itemData) => {
@@ -111,16 +118,23 @@ export default function FeaturedPets(itemData) {
         : `http://10.0.2.2:2000/image/file-1658921191100.jpg`;
       
         return(
+          <View>
         <TouchableOpacity
       
-        onPress={() => navigation.navigate("DetailScreen",{itemData})}
+        onPress={() => navigation.navigate("FeaturePetScreenTwo")}
         
         >
         <Image
         style = {styles.RightImageStyling}
         source={{ uri: url }}/>
   
-        </TouchableOpacity>)
+        </TouchableOpacity>
+
+        <Text  style={{fontWeight:'bold', alignSelf:'center',marginVertical:5}}  >Leapord Gecko </Text>
+        
+      </View>
+        
+        )
       }
 
       Feauter3= (itemData) => {
@@ -131,16 +145,20 @@ export default function FeaturedPets(itemData) {
           : `http://10.0.2.2:2000/image/file-1658741958120.jpeg`;
         
           return(
+            <View>
           <TouchableOpacity
         
-          onPress={() => navigation.navigate("DetailScreen",{itemData})}
+          onPress={() => navigation.navigate("FeaturePetScreenThree")}
           
           >
           <Image
           style = {styles.LeftImageStyling}
           source={{ uri: url }}/>
     
-          </TouchableOpacity>)
+          </TouchableOpacity>
+          <Text  style={{fontWeight:'bold', alignSelf:'center',marginLeft:17,marginVertical:10}}  >Dwarf Rabbit </Text>
+          </View>
+          )
         }
     
         Feauter4= (itemData) => {
@@ -151,16 +169,24 @@ export default function FeaturedPets(itemData) {
             : `http://10.0.2.2:2000/image/file-1659440227139.png`;
           
             return(
+
+              <View>
             <TouchableOpacity
           
-            onPress={() => navigation.navigate("DetailScreen",{itemData})}
+            onPress={() => navigation.navigate("FeaturePetScreenFour")}
             
             >
             <Image
             style = {styles.RightImageStyling}
             source={{ uri: url }}/>
       
-            </TouchableOpacity>)
+            </TouchableOpacity>
+
+            <Text  style={{fontWeight:'bold', alignSelf:'center',marginVertical:10,marginRight:5}}  >Monkey</Text>
+            
+            </View>
+            
+            )
           }
     
 

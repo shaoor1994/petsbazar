@@ -134,6 +134,7 @@ export default class WildAnimalScreenHome extends Component {
             style={styles.searchPets}
             placeholder="search"
             placeholderTextColor="black"
+            onFocus={() =>this.props.navigation.navigate("Search")}
           />
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate("Cities")}

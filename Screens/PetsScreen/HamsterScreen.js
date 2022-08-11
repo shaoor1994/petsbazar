@@ -120,6 +120,7 @@ export default class HamstersScreenHome extends Component {
             style={styles.searchPets}
             placeholder="search"
             placeholderTextColor="black"
+            onFocus={() =>this.props.navigation.navigate("Search")}
           />
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate("Cities")}
@@ -166,11 +167,24 @@ export default class HamstersScreenHome extends Component {
                   }}
                   style={this.state.active === 1 ? styles.activebutton : null}*/
 
-                  onPress={()=>this.props.navigation.navigate("Lions")}
+                  onPress={()=>this.props.navigation.navigate("Wild Animals")}
                 >
                   <Image
                     style={styles.ImageStyling}
                     source={require("../../assets/petslist/lion.png")}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity
+                /*  onPress={() => {
+                    this.setTab("Monkey");
+                    this.setState({ active: 6 });
+                  }}
+                  style={this.state.active === 6 ? styles.activebutton : null}*/
+                  onPress={()=>this.props.navigation.navigate("Peacock")}
+                >
+                  <Image
+                    style={styles.ImageStyling}
+                    source={require("../../assets/petslist/peacock.png")}
                   />
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -241,6 +255,33 @@ export default class HamstersScreenHome extends Component {
                   <Image
                     style={styles.ImageStyling}
                     source={require("../../assets/petslist/monkey.png")}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity
+                /*  onPress={() => {
+                    this.setTab("Monkey");
+                    this.setState({ active: 6 });
+                  }}
+                  style={this.state.active === 6 ? styles.activebutton : null}*/
+                  onPress={()=>this.props.navigation.navigate("Wild Birds")}
+                >
+                  <Image
+                    style={styles.ImageStyling}
+                    source={require("../../assets/petslist/Eagle.png")}
+                  />
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                /*  onPress={() => {
+                    this.setTab("Monkey");
+                    this.setState({ active: 6 });
+                  }}
+                  style={this.state.active === 6 ? styles.activebutton : null}*/
+                  onPress={()=>this.props.navigation.navigate("Aquatic Animals")}
+                >
+                  <Image
+                    style={styles.ImageStyling}
+                    source={require("../../assets/petslist/tortise.png")}
                   />
                 </TouchableOpacity>
                 <TouchableOpacity

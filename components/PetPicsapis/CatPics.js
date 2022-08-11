@@ -150,10 +150,11 @@ const styles = StyleSheet.create({
     height: 127,
     width: 127,
     resizeMode: "cover",
-    marginLeft: -40,
+    marginLeft: -60,
     borderColor: "grey",
     borderRadius: 15,
     borderWidth: 1,
+    marginRight:10
   },
 });
 

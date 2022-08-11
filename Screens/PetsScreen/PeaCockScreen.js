@@ -179,7 +179,7 @@ export default class PeacockScreenHome extends Component {
                   }}
                   style={this.state.active === 1 ? styles.activebutton : null}*/
 
-                  onPress={()=>this.props.navigation.navigate("Lions")}
+                  onPress={()=>this.props.navigation.navigate("Wild Animals")}
                 >
                   <Image
                     style={styles.ImageStyling}
@@ -205,6 +205,7 @@ export default class PeacockScreenHome extends Component {
                     this.setState({ active: 3 });
                   }}
                   style={this.state.active === 3 ? styles.activebutton : null}*/
+                  onPress={()=>this.props.navigation.navigate("Hamsters")}
                 >
                   <Image
                     style={styles.ImageStyling}
@@ -217,7 +218,7 @@ export default class PeacockScreenHome extends Component {
                     this.setState({ active: 4 });
                   }}
                   style={this.state.active === 4 ? styles.activebutton : null}*/
-                  onPress={()=>this.props.navigation.navigate("Hamsters")}
+                  onPress={()=>this.props.navigation.navigate("Hens")}
                 >
                   <Image
                     style={styles.ImageStyling}

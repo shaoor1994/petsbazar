@@ -34,7 +34,14 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static("./Upload/Images"));
 
+/// Email Configuration
 
+
+const buildPath = path.join(__dirname, '..', 'build');
+app.use(express.json());
+app.use(express.static(buildPath));
+
+///
 
 // Setup for the server port number
 const port = process.env.PORT || 4000;

@@ -218,7 +218,7 @@ export default class CatsScreenHome extends Component {
                     this.setState({ active: 4 });
                   }}
                   style={this.state.active === 4 ? styles.activebutton : null}*/
-                  onPress={()=>this.props.navigation.navigate("Hamsters")}
+                  onPress={()=>this.props.navigation.navigate("Hens")}
                 >
                   <Image
                     style={styles.ImageStyling}

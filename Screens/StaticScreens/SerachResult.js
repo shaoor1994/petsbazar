@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const SearchResult = () => {
   const [search, setSearch] = useState('');
+  
 
   const navigation = useNavigation();
 

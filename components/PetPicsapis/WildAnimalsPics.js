@@ -52,7 +52,7 @@ if (itemData.item.category == "Wild-Animals") {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={{ marginLeft: -2}}>
+              <View style={ itemData.item.name == "Hedgehog" ? styles.hedgehogStyling: {  marginLeft: -2}}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
@@ -188,6 +188,17 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 1,
   },
+  hedgehogStyling:{
+    height: 127,
+    width: 127,
+    resizeMode: "cover",
+    marginLeft: -40,
+    marginRight:35,
+
+    borderColor: "grey",
+    borderRadius: 15,
+   // borderWidth: 1,
+  }
 });
 
 export default WildAnimalPics;

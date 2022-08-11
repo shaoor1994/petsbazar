@@ -78,7 +78,9 @@ if (itemData.item.category == "Aquatic-Food") {
         nestedScrollEnabled={true}
         renderItem={_renderItem}
         keyExtractor={(item) => item.id}
-        width={360}
+        width={400}
+        
+    marginLeft={-10}
         contentContainerStyle={{ alignContent:'center',paddingBottom:30 }}
     
       />

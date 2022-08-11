@@ -97,8 +97,8 @@ const Cities = () => {
                       ? styles.lhrtxtstyling
                       : deraismailkhan
                       ? styles.dikhanimgstyling
-                      ? hyderabad
-                      :styles.hyderabadimgStyling
+                        ? hyderabad
+                        : styles.hyderabadimgStyling
                       : styles.nrmimgstyling
                   }
                 >
@@ -119,10 +119,9 @@ const Cities = () => {
                       ? styles.lhrtxtstyling
                       : deraismailkhan
                       ? styles.dikhantxtstyling
-                      ? hyderabad
-                      : styles.hyderabadtxtstyling
+                        ? hyderabad
+                        : styles.hyderabadtxtstyling
                       : styles.nrmtxtstyling
-
                   }
                 >
                   <Text style={styles.title}>{itemData.item.name}</Text>
@@ -152,8 +151,24 @@ const Cities = () => {
             style={styles.searchPets}
             placeholder="search"
             placeholderTextColor="black"
+            onFocus={() =>navigation.navigate("Search")}
           />
-          <TouchableOpacity onPress={() => navigation.navigate("Cities")}>
+          <TouchableOpacity
+            onPress={() => {
+              setislamabad(false),
+                setrawalpindi(false),
+                setlahore(false),
+                setpeshawar(false),
+                setkarachi(false),
+                setlahore(false),
+                setfaisalabad(false),
+                sethyderabad(false),
+                setmultan(false),
+                setsargodha(false),
+                setgujranwala(false),
+                setderaismailkhan(false);
+            }}
+          >
             <Image
               style={styles.gpsImage}
               source={require("../../assets/gps.png")}
@@ -162,73 +177,63 @@ const Cities = () => {
         </View>
 
         <View style={styles.ViewContainer}>
-         
-            <View style={styles.petsListView}>
-              <ScrollView
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-              >
-                <TouchableOpacity onPress={() => navigation.navigate("Cats")}>
-                  <Image
-                    style={styles.ImageStyling}
-                    source={require("../../assets/petslist/cat.png")}
-                  />
-                </TouchableOpacity>
+          <View style={styles.petsListView}>
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            >
+              <TouchableOpacity onPress={() => navigation.navigate("Cats")}>
+                <Image
+                  style={styles.ImageStyling}
+                  source={require("../../assets/petslist/cat.png")}
+                />
+              </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate("Lions")}>
-                  <Image
-                    style={styles.ImageStyling}
-                    source={require("../../assets/petslist/lion.png")}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate("Parrots")}
-                >
-                  <Image
-                    style={styles.ImageStyling}
-                    source={require("../../assets/petslist/birds.png")}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity>
-                  <Image
-                    style={styles.ImageStyling}
-                    source={require("../../assets/petslist/hamster.png")}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate("Hamsters")}
-                >
-                  <Image
-                    style={styles.ImageStyling}
-                    source={require("../../assets/petslist/Hen.png")}
-                  />
-                </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Lions")}>
+                <Image
+                  style={styles.ImageStyling}
+                  source={require("../../assets/petslist/lion.png")}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Parrots")}>
+                <Image
+                  style={styles.ImageStyling}
+                  source={require("../../assets/petslist/birds.png")}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Image
+                  style={styles.ImageStyling}
+                  source={require("../../assets/petslist/hamster.png")}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Hamsters")}>
+                <Image
+                  style={styles.ImageStyling}
+                  source={require("../../assets/petslist/Hen.png")}
+                />
+              </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate("Dogs")}>
-                  <Image
-                    style={styles.ImageStyling}
-                    source={require("../../assets/petslist/dog.png")}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate("Monkeys")}
-                >
-                  <Image
-                    style={styles.ImageStyling}
-                    source={require("../../assets/petslist/monkey.png")}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate("Rabbits")}
-                >
-                  <Image
-                    style={styles.ImageStyling}
-                    source={require("../../assets/petslist/rabbit.png")}
-                  />
-                </TouchableOpacity>
-              </ScrollView>
-            </View>
-          
+              <TouchableOpacity onPress={() => navigation.navigate("Dogs")}>
+                <Image
+                  style={styles.ImageStyling}
+                  source={require("../../assets/petslist/dog.png")}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Monkeys")}>
+                <Image
+                  style={styles.ImageStyling}
+                  source={require("../../assets/petslist/monkey.png")}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Rabbits")}>
+                <Image
+                  style={styles.ImageStyling}
+                  source={require("../../assets/petslist/rabbit.png")}
+                />
+              </TouchableOpacity>
+            </ScrollView>
+          </View>
         </View>
       </View>
       <ScrollView nestedScrollEnabled={true} vertical={true}>
@@ -326,7 +331,7 @@ const Cities = () => {
             </View>
           ) : null}
 
-          <View style={{ flexDirection: "column", flex: 1 }}>
+          <View style={{ flexDirection: "column", flex: 1, marginBottom: 225 }}>
             {islamabad ||
             rawalpindi ||
             //lahore ||
@@ -343,24 +348,18 @@ const Cities = () => {
                 data={data}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id}
-              
               />
             ) : null}
 
-
-            {
-
-              lahore ? (
-                <FlatList
+            {lahore ? (
+              <FlatList
                 nestedScrollEnabled={true}
                 data={data}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id}
                 width={370}
-              
               />
-              ):null
-            }
+            ) : null}
 
             {deraismailkhan ? (
               <FlatList
@@ -400,7 +399,7 @@ const Cities = () => {
                 keyExtractor={(item) => item.id}
                 // maxHeight={200}
                 width={370}
-               // maxHeight={200}
+                // maxHeight={200}
                 marginLeft={-2}
                 marginRight={-5}
                 //marginHorizontal={50}
@@ -469,7 +468,7 @@ const styles = StyleSheet.create({
   innerContainer: {
     borderRadius: 8,
     justifyContent: "center",
-   // justifyContent:'space-between',
+    // justifyContent:'space-between',
     alignItems: "center",
     flexDirection: "row",
 
@@ -540,6 +539,7 @@ const styles = StyleSheet.create({
     marginLeft: -10,
     marginRight: -10,
     resizeMode: "cover",
+    overflow: "hidden",
   },
   petsListView: {},
   petsApiView: {
@@ -564,22 +564,28 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   nrmimgstyling: {
-    marginLeft: 10,
+    // marginLeft: 10,
+    top: 0,
+    left: 62,
+    bottom: 0,
+    right: 0,
+    position: "absolute",
   },
   grwtxtstyling: {
     marginLeft: 80,
     marginTop: 20,
   },
   nrmtxtstyling: {
-    marginLeft: 25,
-    marginTop: -20,
+    // marginLeft: 25,
+    //marginTop: -20,
+    marginLeft: 90,
+    marginTop: 20,
   },
   dikhanimgstyling: {},
 
   dikhantxtstyling: {
-
-    marginRight:7,
-    marginLeft:1
+    marginRight: 7,
+    marginLeft: 1,
   },
 
   multanimgstyling: {
@@ -593,26 +599,24 @@ const styles = StyleSheet.create({
   quettatxtstyling: {
     marginLeft: -20,
   },
-  faisalabadimgStyling:{
+  faisalabadimgStyling: {
     marginRight: 2,
-    marginLeft:-10
+    marginLeft: -10,
   },
-  faisalabadtxtstyling:{
-    marginLeft:70
+  faisalabadtxtstyling: {
+    marginLeft: 70,
   },
-  lhrimgstyling:{
-
+  lhrimgstyling: {},
+  lhrtxtstyling: {
+    marginLeft: 10,
   },
-  lhrtxtstyling:{
-marginLeft:10
+  hyderabadimgStyling: {
+    marginLeft: -20,
+    marginRight: 10,
   },
-  hyderabadimgStyling:{
-marginLeft:-20,
-marginRight:10
+  hyderabadtxtstyling: {
+    marginLeft: 20,
   },
-  hyderabadtxtstyling:{
-marginLeft:20
-  }
 });
 
 export default Cities;

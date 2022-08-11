@@ -93,12 +93,16 @@ if (itemData.item.category == "Medicines") {
         renderItem={_renderItem}
         keyExtractor={(item) => item.id}
         //contentContainerStyle={{paddingBottom:50}}
-                 width={375}
+                 width={400}
                // maxHeight={200}
-                marginLeft={-10}
+                marginLeft={-5}
                 ////marginRight={5}
                 //marginHorizontal={50}
-                contentContainerStyle={{ paddingBottom: 70,paddingTop:30 }}
+                contentContainerStyle={{ 
+                  //paddingBottom: 70,
+                  alignContent:'center',
+                  paddingTop:30
+                   }}
       />
 
     

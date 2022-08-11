@@ -56,7 +56,7 @@ if (itemData.item.category == "Bird-Food") {
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
-              <View style={{ marginLeft: 60,marginRight:-20, marginTop: -20 }}>
+              <View style={{ marginLeft: 60,marginRight:-15, marginTop: -20 }}>
                 <Text style={styles.title}>{itemData.item.name}</Text>
                 <Text style={styles.details}>{itemData.item.price}</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>

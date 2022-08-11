@@ -63,6 +63,10 @@ import SerachResult from "./SerachResult";
 import TempSellNow from "../TempScreens/TempSellNow";
 import LocalData from "../TempScreens/LocalData";
 import PeacockScreenHome from "../PetsScreen/PeaCockScreen";
+import FeaturePetScreenOne from "../TempScreens/FeaturePetScreenOne";
+import FeaturePetScreenTwo from "../TempScreens/FeaturePetScreenTwo";
+import FeaturePetScreenThree from "../TempScreens/FeaturePetScreenThree";
+import FeaturePetScreenFour from "../TempScreens/FeaturePetScreenFour";
 //import FlatListDemo from "../TempScreens/FlatListDemo";
 
 
@@ -193,6 +197,61 @@ export default class Drawers extends React.Component {
         <Drawer.Screen
           name="Aquatic Animals"
           component={AquaticAnimalScreenHome}
+          options={{
+            headerTitleAlign: "center",
+            headerTitle: () => (
+              <Image
+                style={{ height: 40, width: 100 }}
+                source={require("../../assets/hdricon.png")}
+              />
+            ),
+          }}
+        />
+
+<Drawer.Screen
+          name="FeaturePetScreenOne"
+          component={FeaturePetScreenOne}
+          options={{
+            headerTitleAlign: "center",
+            headerTitle: () => (
+              <Image
+                style={{ height: 40, width: 100 }}
+                source={require("../../assets/hdricon.png")}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="FeaturePetScreenTwo"
+          component={FeaturePetScreenTwo}
+          options={{
+            headerTitleAlign: "center",
+            headerTitle: () => (
+              <Image
+                style={{ height: 40, width: 100 }}
+                source={require("../../assets/hdricon.png")}
+              />
+            ),
+          }}
+        />
+
+<Drawer.Screen
+          name="FeaturePetScreenThree"
+          component={FeaturePetScreenThree}
+          options={{
+            headerTitleAlign: "center",
+            headerTitle: () => (
+              <Image
+                style={{ height: 40, width: 100 }}
+                source={require("../../assets/hdricon.png")}
+              />
+            ),
+          }}
+        />
+
+<Drawer.Screen
+          name="FeaturePetScreenFour"
+          component={FeaturePetScreenFour}
           options={{
             headerTitleAlign: "center",
             headerTitle: () => (

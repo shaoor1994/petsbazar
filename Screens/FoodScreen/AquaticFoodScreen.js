@@ -83,6 +83,7 @@ export default class AquaticFoodScreen extends Component  {
             style={styles.searchPets}
             placeholder="search"
             placeholderTextColor="black"
+            onFocus={() =>this.props.navigation.navigate("Search")}
           />
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate("Cities")}
@@ -122,13 +123,13 @@ export default class AquaticFoodScreen extends Component  {
                 </TouchableOpacity>
                 
                 
-                <TouchableOpacity
+              { /* <TouchableOpacity
                 /*  onPress={() => {
                     this.setTab("Lion");
                     this.setState({ active: 1 })
                   }}
                   
-                  style={this.state.active === 1 ? styles.activebutton : null} */
+                  style={this.state.active === 1 ? styles.activebutton : null} 
 
                   onPress={()=>this.props.navigation.navigate("Lion Food")}
                 
@@ -137,7 +138,7 @@ export default class AquaticFoodScreen extends Component  {
                     style={styles.ImageStyling}
                     source={require("../../assets/petslist/lion.png")}
                   />
-                </TouchableOpacity>
+                </TouchableOpacity>*/}
               
                 <TouchableOpacity
                 /* onPress={() =>{ this.setTab("Parrot")

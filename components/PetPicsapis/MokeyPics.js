@@ -13,7 +13,7 @@ import {
   Platform,
 } from "react-native";
 
-const DogPics = () => {
+const MonkeyPics = () => {
   const navigation = useNavigation();
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -76,7 +76,11 @@ if (itemData.item.category == "Monkey") {
       <FlatList
         data={data}
         renderItem={_renderItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.name}
+        width={400}
+        
+        marginLeft={-10}
+            contentContainerStyle={{ alignContent:'center',paddingBottom:30 }}
       />
 
       {/*isLoading && 
@@ -148,11 +152,11 @@ const styles = StyleSheet.create({
     height: 127,
     width: 127,
     resizeMode: "cover",
-    marginLeft: -60,
+    marginLeft: -120,
     borderColor: "grey",
     borderRadius: 15,
     borderWidth: 1,
   },
 });
 
-export default DogPics;
+export default MonkeyPics;
