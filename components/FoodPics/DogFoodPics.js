@@ -52,13 +52,13 @@ if (itemData.item.category == "Dog-Food") {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={{ marginLeft: 10 }}>
+              <View style={{ marginLeft: 50 ,flex:1}}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
-              <View style={{ marginLeft: 30, marginTop: -20 }}>
+              <View style={{ marginLeft: -90, marginTop: -20,flex:1 }}>
                 <Text style={styles.title}>{itemData.item.name}</Text>
-                <Text style={styles.details}>{itemData.item.price}</Text>
+                <Text style={styles.details}>Rs.{itemData.item.price}/-</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>
               </View>
             </View>

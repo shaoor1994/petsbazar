@@ -2,26 +2,37 @@
 // https://aboutreact.com/react-native-search-bar-filter-on-listview/
 
 // import React in our code
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 // import all the components we are going to use
-import { SafeAreaView, Text, StyleSheet, View, FlatList ,Platform,TouchableOpacity,Image} from 'react-native';
-import { SearchBar } from 'react-native-elements';
+import {
+  SafeAreaView,
+  Text,
+  StyleSheet,
+  View,
+  FlatList,
+  Platform,
+  TouchableOpacity,
+  Image,
+} from "react-native";
+import { SearchBar } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 
 const SearchResult = () => {
-  const [search, setSearch] = useState('');
-  
+  const [search, setSearch] = useState("");
 
   const navigation = useNavigation();
 
   const [filteredDataSource, setFilteredDataSource] = useState([]);
   const [masterDataSource, setMasterDataSource] = useState([]);
+  const [focus, setFocus] = useState("false");
 
   useEffect(() => {
-    fetch( Platform.OS === "android"
-    ? "http://192.168.77.23:4000/pets"
-    : " http://10.0.2.2:4000/pets")
+    fetch(
+      Platform.OS === "android"
+        ? "http://192.168.77.23:4000/pets"
+        : " http://10.0.2.2:4000/pets"
+    )
       .then((response) => response.json())
       .then((responseJson) => {
         setFilteredDataSource(responseJson);
@@ -39,9 +50,7 @@ const SearchResult = () => {
       // Filter the masterDataSource
       // Update FilteredDataSource
       const newData = masterDataSource.filter(function (item) {
-        const itemData = item.name
-          ? item.name.toUpperCase()
-          : ''.toUpperCase();
+        const itemData = item.name ? item.name.toUpperCase() : "".toUpperCase();
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
       });
@@ -60,7 +69,7 @@ const SearchResult = () => {
       Platform.OS === "android"
         ? `http://192.168.77.23:2000/image/${itemData.item.image}`
         : `http://10.0.2.2:2000/image/${itemData.item.image}`;
-//if (itemData.item.category == "Dog") {
+    //if (itemData.item.category == "Dog") {
     return (
       console.log(itemData),
       (
@@ -70,12 +79,14 @@ const SearchResult = () => {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={{ marginLeft: 10 ,alignContent:'flex-start'}}>
+              <View style={{ marginLeft: 65,flex:1}}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
-              <View style={{ marginLeft: 25, marginTop: -20 }}>
-                <Text numberOfLines={2} style={styles.title}>{itemData.item.name}</Text>
+              <View style={{ marginRight: 65,flex:1,marginLeft:-25}}>
+                <Text numberOfLines={1} style={styles.title}>
+                  {itemData.item.name}
+                </Text>
                 <Text style={styles.details}>{itemData.item.price}</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>
               </View>
@@ -83,16 +94,17 @@ const SearchResult = () => {
           </TouchableOpacity>
         </View>
       )
-    );}
+    );
+  };
 
   const ItemSeparatorView = () => {
     return (
       // Flat List Item Separator
       <View
         style={{
-        //  height: 0.5,
-          width: '100%',
-          backgroundColor: '#C8C8C8',
+          //  height: 0.5,
+          width: "90%",
+          backgroundColor: "#C8C8C8",
         }}
       />
     );
@@ -100,28 +112,43 @@ const SearchResult = () => {
 
   const getItem = (item) => {
     // Function for click on an item
-    alert('Id : ' + item.id + ' name : ' + item.name);
+    alert("Id : " + item.id + " name : " + item.name);
   };
 
   return (
-    <SafeAreaView style={{ flex: 1,marginBottom:90}}>
+    <SafeAreaView style={{ flex: 1, marginBottom: 90 }}>
       <View style={styles.container}>
         <SearchBar
           round
           searchIcon={{ size: 24 }}
-          onChangeText={(text) => searchFilterFunction(text)}
-          onClear={(text) => searchFilterFunction('')}
+          onChangeText={(text) => searchFilterFunction(text, setFocus("true"))}
+          onClear={(text) => searchFilterFunction("", setFocus("false"))}
           placeholder="Type Here..."
           value={search}
+
+          //onFocus={() => setFocus("true")}
         />
-        <FlatList
-          data={filteredDataSource}
-          keyExtractor={(item, index) => index.toString()}
-          ItemSeparatorComponent={ItemSeparatorView}
-          renderItem={_renderItem}
-          nestedScrollEnabled={true}
-          
-        />
+
+        {focus == "true" ? (
+          <FlatList
+            data={filteredDataSource}
+            keyExtractor={(item, index) => index.toString()}
+            ItemSeparatorComponent={ItemSeparatorView}
+            renderItem={_renderItem}
+            nestedScrollEnabled={true}
+            showsVerticalScrollIndicator={false}
+            marginLeft={-3}
+            width={'auto'}
+            
+           contentContainerStyle={{marginLeft:-5}}
+          />
+        ) : (
+          <View style={{ height: 100, width: "auto", alignItems: "center" }}>
+            <Text style={{ fontWeight: "bold", fontSize: 20, margin: 35 }}>
+              Search Something....!
+            </Text>
+          </View>
+        )}
       </View>
     </SafeAreaView>
   );
@@ -129,7 +156,7 @@ const SearchResult = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
   itemStyle: {
     padding: 10,
@@ -163,25 +190,24 @@ const styles = StyleSheet.create({
   innerContainer: {
     // flex: 1,
     borderRadius: 8,
-    justifyContent:"center",
+    justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
     // padding:5,
 
     //position:'relative'
-    
   },
   title: {
     fontWeight: "bold",
-    fontSize: 22,
+    fontSize: 20,
     color: "black",
-    marginRight: -30,
-    textAlign:'center',
-    
+    //marginRight: 5,
+   // marginLeft:-10,
+    textAlign: "left",
+
     //flex:1
     //marginVertical:5
     // marginLeft:10
-  
   },
   details: {
     fontWeight: "bold",
@@ -200,7 +226,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 1,
     //position:'relative'
-  }
+  },
 });
 
 export default SearchResult;

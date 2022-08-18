@@ -21,8 +21,9 @@ const CatAccessoriesPics = () => {
   const getDataUsingSimpleGetCall = () => {
     axios
       .get(
+        
         Platform.OS === "android"
-          ? "http://192.168.10.6:4000/pets"
+          ? "http://192.168.77.23:4000/pets"
           : " http://10.0.2.2:4000/pets"
       )
       .then((json) => setData(json.data))
@@ -40,8 +41,9 @@ const CatAccessoriesPics = () => {
   const _renderItem = (itemData) => {
     let url =
       Platform.OS === "android"
-        ? `http://192.168.10.6:2000/image/${itemData.item.image}`
-        : `http://10.0.2.2:2000/image/${itemData.item.image}`;
+      
+      ? `http://192.168.77.23:2000/image/${itemData.item.image}`
+      : `http://10.0.2.2:2000/image/${itemData.item.image}`;
 if (itemData.item.category == "Cat-Accessories") {
     return (
       console.log(itemData),
@@ -52,11 +54,11 @@ if (itemData.item.category == "Cat-Accessories") {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={{ marginLeft: 10 }}>
+              <View style={{ marginLeft: 100,flex:1 }}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
-              <View style={{ marginLeft: 60,marginRight:-20, marginTop: -20 }}>
+              <View style={{ marginLeft: -130, marginTop: -20 ,flex:1}}>
                 <Text style={styles.title}>{itemData.item.name}</Text>
                 <Text style={styles.details}>{itemData.item.price}</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>
@@ -76,9 +78,15 @@ if (itemData.item.category == "Cat-Accessories") {
       <FlatList
         data={data}
         renderItem={_renderItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.price}
         //width={400}
-        contentContainerStyle={{paddingBottom:40}}
+        contentContainerStyle={{ paddingBottom: 30,
+           // paddingRight: 30,
+            //alignSelf: "center",
+            //alignItems:'center',
+            alignContent: "center",
+            justifyContent: "space-between",
+            paddingTop:10}}
       />
 
       {/*isLoading && 
@@ -131,7 +139,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontWeight: "bold",
+    //fontWeight: "bold",
     fontSize: 22,
     color: "black",
     marginRight: -30,
@@ -139,7 +147,7 @@ const styles = StyleSheet.create({
     // marginLeft:10
   },
   details: {
-    fontWeight: "bold",
+    //fontWeight: "bold",
     fontSize: 17,
     color: "black",
     marginRight: -30,

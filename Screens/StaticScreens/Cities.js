@@ -570,16 +570,21 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
     position: "absolute",
+    flex:1
+
   },
   grwtxtstyling: {
     marginLeft: 80,
     marginTop: 20,
   },
   nrmtxtstyling: {
-    // marginLeft: 25,
+    marginLeft: 140,
+    marginRight:-25,
     //marginTop: -20,
-    marginLeft: 90,
+    //marginLeft: 90,
     marginTop: 20,
+    textAlign:'center',
+    flex:1
   },
   dikhanimgstyling: {},
 

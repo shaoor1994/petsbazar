@@ -85,8 +85,8 @@ export default class Drawers extends React.Component {
             backgroundColor: "#FF642E",
             width: 240
           },
-          swipeEdgeWidth: 80,
-        swipeMinDistance: 80,
+          swipeEdgeWidth: 40,
+        swipeMinDistance: 40,
           overlayColor: "transparent",
           drawerInactiveTintColor: "#ffff",
           drawerActiveTintColor: "black",

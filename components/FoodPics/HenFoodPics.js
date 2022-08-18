@@ -42,7 +42,7 @@ const HenFoodPics = () => {
       Platform.OS === "android"
         ? `http://192.168.77.23:2000/image/${itemData.item.image}`
         : `http://10.0.2.2:2000/image/${itemData.item.image}`;
-if (itemData.item.category == "Hen-Food") {
+if (itemData.item.category === "Hen-Food") {
     return (
       console.log(itemData),
       (
@@ -52,11 +52,11 @@ if (itemData.item.category == "Hen-Food") {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={{ marginLeft: 10 }}>
+              <View style={{ marginLeft: 10,flex:1 }}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
-              <View style={{ marginLeft: 60,marginRight:-20, marginTop: -20 }}>
+              <View style={{ flex:1,marginLeft: 60,marginRight:-20, marginTop: -20 }}>
                 <Text style={styles.title}>{itemData.item.name}</Text>
                 <Text style={styles.details}>{itemData.item.price}</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>

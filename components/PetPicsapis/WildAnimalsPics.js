@@ -52,25 +52,30 @@ if (itemData.item.category == "Wild-Animals") {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={ itemData.item.name == "Hedgehog" ? styles.hedgehogStyling: {  marginLeft: -2}}>
+              <View style={ 
+                //itemData.item.name == "Hedgehog" ? styles.hedgehogStyling: 
+              
+              
+              {  marginLeft: -20}}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
               <View style={{
-                  top: 5,
+                  top: -10,
                   left: 0,
-                  bottom: 0,
-                  right: 60,
+                  bottom: 10,
+                  right: 100,
                   position: "relative",
-                  padding: 10,
+                 // padding: 10,
                   //alignItems:'flex-start',
                   flexDirection: "column",
-                  marginLeft: 15,}}>
-                  <View style={{marginHorizontal:40}}>
+                  marginLeft: -5,
+                  flex:1}}>
+                  <View style={{marginHorizontal:40,}}>
                 <Text style={styles.title}>{itemData.item.name}</Text>
                 </View>
-                <View style={{marginHorizontal:40}}>
-                <Text style={styles.details}>{itemData.item.price}</Text>
+                <View style={{marginHorizontal:40,}}>
+                <Text style={styles.details}>Rs.{itemData.item.price}/-</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>
                 </View>
               </View>
@@ -90,7 +95,9 @@ if (itemData.item.category == "Wild-Animals") {
         data={data}
         renderItem={_renderItem}
         keyExtractor={(item) => item.id}
-        width={380}
+        width={410}
+        marginRight={20}
+        marginLeft={-10}
 
         contentContainerStyle={{paddingVertical:30,paddingHorizontal:-20}}
       />
@@ -146,10 +153,10 @@ const styles = StyleSheet.create({
   },
   title: {
        //fontWeight: "bold",
-       fontSize: 22,
-       color: "black",
+      // fontSize: 22,
+      // color: "black",
        //marginRight: -20,
-       textAlign: "left",
+       //textAlign: "left",
        // alignSelf:'flex-end',
        //marginVertical:5
        //marginLeft: "auto",
@@ -157,32 +164,43 @@ const styles = StyleSheet.create({
        //marginLeft:30,
        //marginRight:-30,
        //margin:'auto',
-       writingDirection: "rtl",
-       marginBottom: 5,
-       textAlignVertical: "top",
-       alignSelf:'flex-start'
+       //writingDirection: "rtl",
+      // marginBottom: 5,
+     //  textAlignVertical: "top",
+      // alignSelf:'flex-start'
+      //fontWeight: "bold",
+      fontSize: 20,
+      color: "black",
+      //marginRight: 5,
+     // marginLeft:-10,
+      textAlign: "left"
   },
   details: {
        // fontWeight: "bold",
-       fontSize: 17,
-       color: "black",
+       //fontSize: 17,
+       //color: "black",
        // marginRight: -70,
        //marginVertical:5
        //marginLeft:10,
-       textAlign: "left",
+       //textAlign: "left",
        // alignSelf:'flex-end',
        //marginLeft: "auto",
-       marginLeft:10,
-       marginRight:-20,
-       textAlignVertical: "top",
-       alignSelf:'flex-start'
+       //marginLeft:10,
+       //marginRight:-20,
+       //textAlignVertical: "top",
+       //alignSelf:'flex-start'
       // marginRight:10
+     // fontWeight: "bold",
+    fontSize: 17,
+    color: "black",
+    marginRight: -10,
+    marginTop:0,
   },
   imgsettings: {
     height: 127,
     width: 127,
     resizeMode: "cover",
-    marginLeft: 35,
+    marginLeft: 20,
 
     borderColor: "grey",
     borderRadius: 15,

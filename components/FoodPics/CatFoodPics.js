@@ -52,13 +52,13 @@ if (itemData.item.category == "Cat-Food") {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={{ marginLeft: 10 }}>
+              <View style={{ marginLeft: 80 ,flex:1}}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
-              <View style={{ marginLeft: 60,marginRight:-20, marginTop: -20 }}>
+              <View style={{ flex:1,marginLeft: -140,marginRight:-20, marginTop: -20 }}>
                 <Text style={styles.title}>{itemData.item.name}</Text>
-                <Text style={styles.details}>{itemData.item.price}</Text>
+                <Text style={styles.details}>Rs.{itemData.item.price}/-</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>
               </View>
             </View>
@@ -79,6 +79,7 @@ if (itemData.item.category == "Cat-Food") {
         keyExtractor={(item) => item.id}
         //width={400}
         contentContainerStyle={{paddingBottom:40}}
+        marginLeft={-5}
       />
 
       {/*isLoading && 

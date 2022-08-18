@@ -52,13 +52,13 @@ if (itemData.item.category == "Parrot") {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={{ marginLeft: 10 }}>
+              <View style={{ marginLeft: 61 ,flex:1}}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
-              <View style={{ marginLeft: 25, marginTop: -20 }}>
+              <View style={{ marginLeft: -120, flex:1, marginTop: -20 }}>
                 <Text style={styles.title}>{itemData.item.name}</Text>
-                <Text style={styles.details}>{itemData.item.price}</Text>
+                <Text style={styles.details}>Rs.{itemData.item.price}/-</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>
               </View>
             </View>
@@ -78,6 +78,7 @@ if (itemData.item.category == "Parrot") {
         renderItem={_renderItem}
         keyExtractor={(item) => item.id}
         nestedScrollEnabled={true}
+        marginLeft={-10}
       />
 
       {/*isLoading && 
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     marginHorizontal: 14,
     height: 130,
-    width: "93%",
+    width: "95%",
     borderRadius: 8,
     elevation: 4,
     backgroundColor: "#ffffff",

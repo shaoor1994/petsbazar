@@ -288,7 +288,7 @@ export default class WildBirdsScreenHome extends Component {
                     this.setState({ active: 6 });
                   }}
                   style={this.state.active === 6 ? styles.activebutton : null}*/
-                //onPress={()=>this.props.navigation.navigate("WildBirds")}
+                onPress={()=>this.props.navigation.navigate("Aquatic Animals")}
                 >
                   <Image
                     style={styles.ImageStyling}

@@ -46,13 +46,13 @@ if (itemData.item.category == "Medicines") {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={{ marginLeft: -40 }}>
+              <View style={{ marginLeft: 162 ,flex:1}}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
-              <View style={{ marginLeft: 5, marginRight:-120, marginTop: -20 }}>
+              <View style={{ marginLeft: -195, marginTop: -20 ,flex:1}}>
                 <Text style={styles.title}>{itemData.item.name}</Text>
-                <Text style={styles.details}>{itemData.item.price}</Text>
+                <Text style={styles.details}>Rs.{itemData.item.price}/-</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>
               </View>
             </View>

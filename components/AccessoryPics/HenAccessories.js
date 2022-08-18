@@ -52,11 +52,11 @@ if (itemData.item.category == "Hen-Accessories") {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={{ marginLeft: 10 }}>
+              <View style={{ marginLeft: 80 ,flex:1 }}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
-              <View style={{ marginLeft: 60,marginRight:-20, marginTop: -20 }}>
+              <View style={{ flex:1,marginLeft:-100, marginTop: -20 }}>
                 <Text style={styles.title}>{itemData.item.name}</Text>
                 <Text style={styles.details}>{itemData.item.price}</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>

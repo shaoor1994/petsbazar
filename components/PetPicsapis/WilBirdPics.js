@@ -52,13 +52,13 @@ if (itemData.item.category == "Wild-Birds") {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={{ marginLeft: 10 }}>
+              <View style={{ marginLeft: 30 ,flex:1}}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
-              <View style={{ marginLeft: 25, marginTop: -20 }}>
+              <View style={{ marginLeft: -75, marginTop: -20,flex:1 }}>
                 <Text style={styles.title}>{itemData.item.name}</Text>
-                <Text style={styles.details}>{itemData.item.price}</Text>
+                <Text style={styles.details}>Rs.{itemData.item.price}/-</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>
               </View>
             </View>
@@ -77,6 +77,8 @@ if (itemData.item.category == "Wild-Birds") {
         data={data}
         renderItem={_renderItem}
         keyExtractor={(item) => item.id}
+        width={410}
+       marginLeft={-10}
       />
 
       {/*isLoading && 
@@ -148,7 +150,7 @@ const styles = StyleSheet.create({
     height: 127,
     width: 127,
     resizeMode: "cover",
-    marginLeft: 0,
+    marginLeft: -30,
     borderColor: "grey",
     borderRadius: 15,
     borderWidth: 1,

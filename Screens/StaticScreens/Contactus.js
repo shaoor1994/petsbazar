@@ -54,24 +54,16 @@ const Contactus = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
- 
-
 
   const sendMail = async () => {
     //const url = 'https://api.emailjs.com/api/v1.0/email/send/';
-  
-    
-   
-    
+
     data = {
-      service_id: 'service_yweqzo3',
-      template_id: 'template_8pewuqm',
-      user_id:  'XkxJ3uAv_pu2RtSMo'
+      service_id: "service_yweqzo3",
+      template_id: "template_8pewuqm",
+      user_id: "XkxJ3uAv_pu2RtSMo",
     };
-    
 
-
-    
     /**const params = {
     method: 'POST',
       body: JSON.stringify(data),
@@ -80,21 +72,23 @@ const Contactus = () => {
         'Content-Type': 'application/json'
       }
     };*/
-    
+
     try {
-      await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-       // method: 'POST',
-          body: JSON.stringify(data),
+      await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        body: JSON.stringify(data),
         /// body:data,
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-      console.log('Your mail is sent!');
-      alert("We have recived your message....!We will fet back to you soon!!! ")
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("Your mail is sent!");
+      alert(
+        "We have recived your message....!                  We will get back to you soon....! "
+      );
     } catch (error) {
       console.error(error);
-      alert("Please Try again letter")
+      alert("Please Try again letter");
     }
   };
 
@@ -185,11 +179,7 @@ const Contactus = () => {
           onChange={(e) => setMessage(e.target.value)}
         />
 
-        <TouchableOpacity style={styles.btn}
-        
-        onPress={sendMail}
-
-        >
+        <TouchableOpacity style={styles.btn} onPress={sendMail}>
           <Text style={styles.btnTxt}>Send</Text>
         </TouchableOpacity>
 

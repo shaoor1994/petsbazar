@@ -52,13 +52,13 @@ if (itemData.item.category == "Hamster-Food") {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={{ marginLeft: 10 }}>
+              <View style={{ marginLeft: 100,flex:1 }}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
-              <View style={{ marginLeft: 60,marginRight:-20, marginTop: -20 }}>
+              <View style={{ marginLeft: -130, marginTop: -20,flex:1 }}>
                 <Text style={styles.title}>{itemData.item.name}</Text>
-                <Text style={styles.details}>{itemData.item.price}</Text>
+                <Text style={styles.details}>Rs.{itemData.item.price}/-</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>
               </View>
             </View>
@@ -76,9 +76,10 @@ if (itemData.item.category == "Hamster-Food") {
       <FlatList
         data={data}
         renderItem={_renderItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.name}
         //width={400}
         contentContainerStyle={{paddingBottom:40}}
+        marginLeft={-10}
       />
 
       {/*isLoading && 
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     marginHorizontal: 14,
     height: 130,
-    width: "93%",
+    width: "95.5%",
     borderRadius: 8,
     elevation: 4,
     backgroundColor: "#ffffff",
@@ -131,7 +132,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontWeight: "bold",
+    //fontWeight: "bold",
     fontSize: 22,
     color: "black",
     marginRight: -30,
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
     // marginLeft:10
   },
   details: {
-    fontWeight: "bold",
+    //fontWeight: "bold",
     fontSize: 17,
     color: "black",
     marginRight: -30,

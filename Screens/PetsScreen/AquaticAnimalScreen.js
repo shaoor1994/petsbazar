@@ -168,7 +168,7 @@ export default class AquaticAnimalScreenHome extends Component {
                     this.setState({ active: 6 });
                   }}
                   style={this.state.active === 6 ? styles.activebutton : null}*/
-                  //onPress={()=>this.props.navigation.navigate("WildBirds")}
+                  onPress={()=>this.props.navigation.navigate("Peacock")}
                 >
                   <Image
                     style={styles.ImageStyling}

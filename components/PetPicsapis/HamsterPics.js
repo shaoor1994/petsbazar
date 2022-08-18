@@ -145,10 +145,10 @@ const styles = StyleSheet.create({
     // marginLeft:10
   },
   imgsettings: {
-    height: 127,
+    height: 130,
     width: 127,
     resizeMode: "cover",
-    marginLeft: -40,
+    marginLeft: -65,
     borderColor: "grey",
     borderRadius: 15,
     borderWidth: 1,

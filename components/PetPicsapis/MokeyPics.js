@@ -52,13 +52,13 @@ if (itemData.item.category == "Monkey") {
             onPress={() => navigation.navigate("DetailScreen", { itemData })}
           >
             <View style={styles.innerContainer}>
-              <View style={{ marginLeft: 10 }}>
+              <View style={{ marginLeft: 10,flex:1 }}>
                 <Image style={styles.imgsettings} source={{ uri: url }} />
               </View>
 
-              <View style={{ marginLeft: 25, marginTop: -20 }}>
+              <View style={{ marginLeft: -10,marginRight:90, marginTop: -20 }}>
                 <Text style={styles.title}>{itemData.item.name}</Text>
-                <Text style={styles.details}>{itemData.item.price}</Text>
+                <Text style={styles.details}>Rs.{itemData.item.price}/-</Text>
                 <Text style={styles.details}>{itemData.item.city}</Text>
               </View>
             </View>
@@ -77,10 +77,10 @@ if (itemData.item.category == "Monkey") {
         data={data}
         renderItem={_renderItem}
         keyExtractor={(item) => item.name}
-        width={400}
+        width={390}
         
         marginLeft={-10}
-            contentContainerStyle={{ alignContent:'center',paddingBottom:30 }}
+            contentContainerStyle={{paddingBottom:20}}
       />
 
       {/*isLoading && 
@@ -100,9 +100,10 @@ const styles = StyleSheet.create({
   containerFlate: {
     flex: 1,
     marginVertical: 5,
-    marginHorizontal: 14,
+    //marginHorizontal: 14,
     height: 130,
-    width: "93%",
+    width: "96%",
+    marginLeft:15,
     borderRadius: 8,
     elevation: 4,
     backgroundColor: "#ffffff",
@@ -115,11 +116,11 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
   },
   buttonStyle: {
-    justifyContent: "center",
+    //justifyContent: "center",
     // alignItems: 'center',
     // backgroundColor: '#DDDDDD',
     // padding: 10,
-    alignSelf: "center",
+   // alignSelf: "center",
     width: "100%",
     //marginTop: 400,
   },
@@ -131,12 +132,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     // padding:5,
     alignItems: "center",
+    width:'100%'
   },
   title: {
-   // fontWeight: "bold",
+   //fontWeight: "bold",
     fontSize: 22,
     color: "black",
-    marginRight: -30,
+    //marginRight: 5,
     //marginVertical:5
     // marginLeft:10
   },
@@ -152,7 +154,7 @@ const styles = StyleSheet.create({
     height: 127,
     width: 127,
     resizeMode: "cover",
-    marginLeft: -120,
+    marginLeft: -10,
     borderColor: "grey",
     borderRadius: 15,
     borderWidth: 1,
